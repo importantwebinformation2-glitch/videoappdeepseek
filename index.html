@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
-  <title>AI Avatar Studio · Choose Your Presenter</title>
+  <title>Avatar Speaker · Unlimited Duration</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', system-ui, sans-serif; }
@@ -13,7 +13,7 @@
     h1 i { background: linear-gradient(135deg, #7b8cff, #f47aff); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
     .subhead { color: #9aa7c9; margin-bottom: 16px; padding-left: 14px; border-left: 3px solid #7b8cff; font-size: 0.85rem; }
     .input-area { background: #0f162b; border-radius: 24px; padding: 14px 18px; border: 1px solid #2e3a5a; margin-bottom: 14px; }
-    textarea { width: 100%; background: transparent; border: none; outline: none; color: #e9efff; font-size: 0.95rem; resize: vertical; min-height: 70px; line-height: 1.5; }
+    textarea { width: 100%; background: transparent; border: none; outline: none; color: #e9efff; font-size: 0.95rem; resize: vertical; min-height: 80px; line-height: 1.5; }
     textarea::placeholder { color: #5d6f93; }
     .control-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 12px 0 16px; }
     .control-group { background: #111a30; border-radius: 18px; padding: 10px 14px; border: 1px solid #263153; }
@@ -33,18 +33,16 @@
     .download-btn { background: #1f2940; border: 1px solid #36476b; padding: 10px 16px; border-radius: 40px; color: #d3defa; font-weight: 500; display: inline-flex; align-items: center; gap: 8px; cursor: pointer; flex: 1 1 100px; justify-content: center; transition: 0.2s; }
     .download-btn:hover { background: #2b3857; border-color: #7b8cff; color: white; }
     .footer-note { margin-top: 16px; text-align: center; font-size: 0.7rem; color: #4a5d84; border-top: 1px dashed #1f2d4a; padding-top: 14px; display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; }
-    .avatar-preview { display: flex; align-items: center; gap: 12px; margin: 6px 0; }
-    .avatar-preview canvas { border-radius: 50%; border: 2px solid #4a5d84; background: #111a30; }
     @media (max-width: 600px) { .app-card { padding: 16px; } .control-grid { grid-template-columns: 1fr; } .action-bar, .download-group { flex-direction: column; } .btn-primary, .btn-secondary, .download-btn { width: 100%; } }
   </style>
 </head>
 <body>
 <div class="app-card">
-  <h1><i class="fas fa-users"></i> Avatar Studio</h1>
-  <div class="subhead"><i class="fas fa-comment"></i> Choose a presenter · Text highlights as they speak</div>
+  <h1><i class="fas fa-user-tie"></i> Avatar Speaker</h1>
+  <div class="subhead"><i class="fas fa-comment"></i> Choose an avatar · Speaks your text · Unlimited duration</div>
 
   <div class="input-area">
-    <textarea id="textInput" placeholder="Paste your script here. The avatar will speak it..." rows="4">Hello and welcome! Today we're exploring the future of artificial intelligence. It's an exciting time to be alive. Let's dive in.</textarea>
+    <textarea id="textInput" placeholder="Paste your script here. The avatar will speak it..." rows="4">Hello and welcome! Today we're exploring the future of artificial intelligence. It's an exciting time to be alive. Let's dive in and see what's possible.</textarea>
   </div>
 
   <div class="control-grid">
@@ -58,8 +56,8 @@
       </select>
     </div>
     <div class="control-group">
-      <label><i class="fas fa-clock"></i> Duration (sec)</label>
-      <input type="number" id="durationInput" value="12" min="5" max="90">
+      <label><i class="fas fa-clock"></i> Duration (seconds)</label>
+      <input type="number" id="durationInput" value="30" min="5" max="600" step="5">
     </div>
   </div>
 
@@ -69,7 +67,7 @@
   </div>
 
   <div class="preview-box">
-    <div class="preview-header"><span><i class="fas fa-play"></i> Preview</span><span><i class="fas fa-volume-high"></i> Voice</span></div>
+    <div class="preview-header"><span><i class="fas fa-play"></i> Preview</span><span><i class="fas fa-volume-high"></i> Voice only</span></div>
     <video id="videoPreview" controls playsinline muted><source src="" type="video/mp4">Your browser does not support the video tag.</video>
     <div class="status-badge" id="statusBadge"><i class="fas fa-circle-check"></i> <span id="statusText">Ready. Choose avatar & generate.</span></div>
   </div>
@@ -82,7 +80,7 @@
   <div class="footer-note">
     <span><i class="fas fa-robot"></i> AI Presenter</span>
     <span><i class="fas fa-highlighter"></i> Text highlights</span>
-    <span><i class="fas fa-infinity"></i> No limits</span>
+    <span><i class="fas fa-infinity"></i> Unlimited duration</span>
   </div>
 </div>
 
@@ -101,11 +99,11 @@
     const downloadComputer = document.getElementById('downloadComputerBtn');
 
     const sampleScripts = [
-      "Hello and welcome! Today we're exploring the future of artificial intelligence. It's an exciting time to be alive.",
-      "Did you know that the average person spends over two hours on social media every day? That's a lot of time.",
-      "CashKaro is one of India's leading cashback platforms. You can earn cashback on every purchase you make.",
-      "This is a great product for anyone looking to save money and time. Try it today and see the difference.",
-      "Music has the power to change our mood, inspire us, and bring people together. Let's celebrate music."
+      "Hello and welcome! Today we're exploring the future of artificial intelligence. It's an exciting time to be alive. Let's dive in and see what's possible.",
+      "Did you know that the average person spends over two hours on social media every day? That's a lot of time that could be used more productively.",
+      "CashKaro is one of India's leading cashback platforms. You can earn cashback on every purchase you make from thousands of online stores.",
+      "This is a great product for anyone looking to save money and time. Try it today and see the difference it makes in your daily life.",
+      "Music has the power to change our mood, inspire us, and bring people together. Let's celebrate the universal language of music."
     ];
 
     // ---------- Avatar drawing functions ----------
@@ -139,7 +137,7 @@
       ctx.fill();
       // Mouth
       ctx.fillStyle = '#8a3a2a';
-      const mh = 6 + 10 * mouthOpen;
+      const mh = 6 + 12 * mouthOpen;
       ctx.beginPath();
       ctx.ellipse(cx, cy+20, 14, mh, 0, 0, Math.PI*2);
       ctx.fill();
@@ -156,7 +154,7 @@
       ctx.beginPath();
       ctx.ellipse(cx, cy, 50, 60, 0, 0, Math.PI*2);
       ctx.fill();
-      // Eyes (friendly)
+      // Eyes
       ctx.fillStyle = '#2a1f1a';
       ctx.beginPath();
       ctx.arc(cx-20, cy-10, 5, 0, Math.PI*2);
@@ -170,11 +168,12 @@
       ctx.beginPath();
       ctx.arc(cx, cy+10, 15, 0.1, Math.PI-0.1);
       ctx.stroke();
-      // Mouth (for speaking)
-      if (mouthOpen > 0.5) {
+      // Mouth for speaking
+      if (mouthOpen > 0.3) {
         ctx.fillStyle = '#8a3a2a';
+        const mh = 6 + 10 * mouthOpen;
         ctx.beginPath();
-        ctx.ellipse(cx, cy+15, 10, 6, 0, 0, Math.PI*2);
+        ctx.ellipse(cx, cy+15, 10, mh, 0, 0, Math.PI*2);
         ctx.fill();
       }
     }
@@ -208,7 +207,7 @@
       ctx.fill();
       // Mouth
       ctx.fillStyle = '#8a3a2a';
-      const mh = 5 + 10 * mouthOpen;
+      const mh = 5 + 12 * mouthOpen;
       ctx.beginPath();
       ctx.ellipse(cx, cy+20, 12, mh, 0, 0, Math.PI*2);
       ctx.fill();
@@ -246,7 +245,7 @@
       ctx.fill();
       // Mouth
       ctx.fillStyle = '#c04060';
-      const mh = 6 + 10 * mouthOpen;
+      const mh = 6 + 12 * mouthOpen;
       ctx.beginPath();
       ctx.ellipse(cx, cy+18, 14, mh, 0, 0, Math.PI*2);
       ctx.fill();
@@ -256,9 +255,9 @@
     function generateAvatarVideo() {
       const text = textInput.value.trim();
       const avatarType = avatarSelect.value;
-      let duration = parseInt(durationInput.value) || 12;
+      let duration = parseInt(durationInput.value) || 30;
       if (duration < 5) duration = 5;
-      if (duration > 90) duration = 90;
+      if (duration > 600) duration = 600;
       durationInput.value = duration;
 
       if (!text) { setStatus('Please enter a script.', false); return; }
@@ -273,25 +272,33 @@
       canvas.height = 360;
       const ctx = canvas.getContext('2d');
 
-      // Audio: Speech only
+      // Audio: Speech only (no background music)
       const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
       const masterGain = audioCtx.createGain();
       masterGain.gain.setValueAtTime(1.0, audioCtx.currentTime);
       masterGain.connect(audioCtx.destination);
 
       // Text-to-Speech
-      const speechUtterance = new SpeechSynthesisUtterance(text.slice(0, 200));
+      const speechUtterance = new SpeechSynthesisUtterance(text);
       speechUtterance.rate = 0.85;
       speechUtterance.pitch = 1.0;
       speechUtterance.volume = 1.0;
+      
+      // Get available voices and pick a good one
       const voices = speechSynthesis.getVoices();
-      const preferredVoice = voices.find(v => v.lang.startsWith('en')) || voices[0];
+      // Prefer English voices
+      const preferredVoice = voices.find(v => v.lang.startsWith('en') && v.name.includes('Google')) || 
+                            voices.find(v => v.lang.startsWith('en')) || 
+                            voices[0];
       if (preferredVoice) speechUtterance.voice = preferredVoice;
 
-      // Estimate speech duration
-      const wordCount = text.slice(0, 200).split(' ').length;
-      const speechDuration = Math.min(Math.max(wordCount * 0.35, 3), 25);
-      const finalDuration = Math.max(duration, speechDuration + 2);
+      // Estimate speech duration based on text length
+      const wordCount = text.split(' ').length;
+      const estimatedSpeechDuration = Math.min(Math.max(wordCount * 0.4, 3), 60);
+      const finalDuration = Math.max(duration, estimatedSpeechDuration + 2);
+
+      // Update duration display to actual
+      durationInput.value = Math.ceil(finalDuration);
 
       // Recording
       const stream = canvas.captureStream(30);
@@ -316,7 +323,7 @@
         video.controls = true;
         video.dataset.blobUrl = url;
         video.dataset.blob = blob;
-        setStatus(`✅ Video ready · ${finalDuration}s · ${avatarType}`, false);
+        setStatus(`✅ Video ready · ${Math.ceil(finalDuration)}s · ${avatarType}`, false);
         generateBtn.disabled = false;
         generateBtn.innerHTML = '<i class="fas fa-wand-magic-sparkles"></i> Generate Video';
         video.play().catch(() => {});
@@ -326,9 +333,8 @@
 
       // ---------- Animation loop ----------
       const startTime = performance.now();
-      let speechStarted = false;
       const words = text.split(' ');
-      let wordIndex = 0;
+      let speechStarted = false;
 
       function renderFrame() {
         const elapsed = (performance.now() - startTime) / 1000;
@@ -348,11 +354,12 @@
         ctx.fillRect(0, 0, canvas.width, canvas.height);
 
         // Determine mouth movement based on speech progress
-        const speechProgress = Math.min(elapsed / speechDuration, 1);
+        const speechProgress = Math.min(elapsed / estimatedSpeechDuration, 1);
         let mouthOpen = 0;
         if (speechProgress < 0.9) {
-          const syllablePhase = Math.sin(elapsed * 14) * 0.5 + 0.5;
-          mouthOpen = 0.3 + syllablePhase * 0.7;
+          // Simulate syllables with a faster oscillation
+          const syllablePhase = Math.sin(elapsed * 16) * 0.5 + 0.5;
+          mouthOpen = 0.2 + syllablePhase * 0.8;
         }
 
         // Draw selected avatar
@@ -365,10 +372,10 @@
           default: drawFriendly(ctx, cx, cy, elapsed, mouthOpen);
         }
 
-        // ------ Highlight text as it's spoken ------
+        // ------ Highlight text as it's spoken (teleprompter effect) ------
         const wordsSpoken = Math.floor(speechProgress * words.length);
-        const displayWords = words.slice(0, wordsSpoken + 1);
-        const remainingWords = words.slice(wordsSpoken + 1);
+        const displayWords = words.slice(0, Math.min(wordsSpoken + 1, words.length));
+        const remainingWords = words.slice(Math.min(wordsSpoken + 1, words.length));
         const displayedText = displayWords.join(' ');
         const remainingText = remainingWords.join(' ');
 
@@ -380,7 +387,7 @@
         // Highlighted (spoken) text - white with glow
         ctx.font = 'bold 20px "Segoe UI", system-ui, sans-serif';
         ctx.fillStyle = '#ffffff';
-        ctx.shadowColor = 'rgba(123, 140, 255, 0.6)';
+        ctx.shadowColor = 'rgba(123, 140, 255, 0.5)';
         ctx.shadowBlur = 20;
         const line1 = displayedText.length > 60 ? displayedText.slice(0, 60) + '…' : displayedText;
         ctx.fillText(line1, canvas.width/2, canvas.height - 40);
@@ -397,7 +404,10 @@
         requestAnimationFrame(renderFrame);
       }
 
-      // Start
+      // Start speech and rendering
+      speechUtterance.onend = () => {
+        // Speech ended, but we'll keep rendering until duration
+      };
       speechSynthesis.speak(speechUtterance);
       renderFrame();
 
@@ -437,6 +447,10 @@
     downloadComputer.addEventListener('click', () => downloadVideo('computer'));
 
     setStatus('Ready. Choose avatar & generate.', false);
+
+    // Pre-load voices
+    speechSynthesis.getVoices();
+    speechSynthesis.onvoiceschanged = () => { speechSynthesis.getVoices(); };
   })();
 </script>
 </body>
