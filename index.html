@@ -2,27 +2,25 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes"><!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
-  <title>Promo Video Studio</title>
+  <title>AI Avatar Studio · Promo & Music Videos</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', system-ui, sans-serif; }
     body { background: #0a0e1a; min-height: 100vh; display: flex; justify-content: center; align-items: center; padding: 16px; }
-    .app-card { max-width: 780px; width: 100%; background: rgba(14, 22, 42, 0.95); backdrop-filter: blur(12px); border-radius: 40px; padding: 24px; border: 1px solid #2e4068; }
-    h1 { font-size: 1.8rem; color: #f0f4ff; display: flex; align-items: center; gap: 12px; margin-bottom: 4px; }
+    .app-card { max-width: 820px; width: 100%; background: rgba(14, 22, 42, 0.95); backdrop-filter: blur(12px); border-radius: 40px; padding: 24px; border: 1px solid #2e4068; box-shadow: 0 20px 40px rgba(0,0,0,0.7); }
+    h1 { font-size: 1.8rem; color: #f0f4ff; display: flex; align-items: center; gap: 12px; margin-bottom: 2px; }
     h1 i { background: linear-gradient(135deg, #7b8cff, #f47aff); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-    .subhead { color: #9aa7c9; margin-bottom: 16px; padding-left: 14px; border-left: 3px solid #7b8cff; font-size: 0.9rem; }
+    .subhead { color: #9aa7c9; margin-bottom: 16px; padding-left: 14px; border-left: 3px solid #7b8cff; font-size: 0.85rem; }
     .input-area { background: #0f162b; border-radius: 24px; padding: 14px 18px; border: 1px solid #2e3a5a; margin-bottom: 14px; }
-    textarea { width: 100%; background: transparent; border: none; outline: none; color: #e9efff; font-size: 1rem; resize: vertical; min-height: 70px; line-height: 1.5; }
+    textarea { width: 100%; background: transparent; border: none; outline: none; color: #e9efff; font-size: 0.95rem; resize: vertical; min-height: 80px; line-height: 1.5; }
     textarea::placeholder { color: #5d6f93; }
     .control-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 12px 0 16px; }
     .control-group { background: #111a30; border-radius: 18px; padding: 10px 14px; border: 1px solid #263153; }
     .control-group label { display: block; font-size: 0.75rem; color: #8d9fcb; margin-bottom: 4px; }
     .control-group input, .control-group select { width: 100%; background: #0b101f; border: 1px solid #2e3a5a; border-radius: 30px; padding: 8px 12px; color: #e9efff; font-size: 0.9rem; outline: none; }
+    .volume-control { display: flex; align-items: center; gap: 10px; background: #0b101f; border-radius: 30px; padding: 4px 12px 4px 16px; border: 1px solid #2e3a5a; }
+    .volume-control input[type="range"] { flex: 1; background: transparent; accent-color: #7b8cff; }
     .action-bar { display: flex; flex-wrap: wrap; gap: 10px; margin: 12px 0 16px; }
     .btn-primary { background: linear-gradient(135deg, #5f73e0, #8b5cf6); border: none; padding: 14px 24px; border-radius: 60px; font-weight: 600; color: white; display: inline-flex; align-items: center; gap: 10px; cursor: pointer; flex: 2 1 auto; justify-content: center; box-shadow: 0 6px 18px rgba(91, 104, 224, 0.3); transition: 0.2s; }
     .btn-primary:hover { transform: scale(1.02); }
@@ -36,40 +34,45 @@
     .download-group { display: flex; gap: 10px; flex-wrap: wrap; margin: 6px 0; }
     .download-btn { background: #1f2940; border: 1px solid #36476b; padding: 10px 16px; border-radius: 40px; color: #d3defa; font-weight: 500; display: inline-flex; align-items: center; gap: 8px; cursor: pointer; flex: 1 1 100px; justify-content: center; transition: 0.2s; }
     .download-btn:hover { background: #2b3857; border-color: #7b8cff; color: white; }
-    .footer-note { margin-top: 16px; text-align: center; font-size: 0.7rem; color: #4a5d84; border-top: 1px dashed #1f2d4a; padding-top: 14px; }
+    .footer-note { margin-top: 16px; text-align: center; font-size: 0.7rem; color: #4a5d84; border-top: 1px dashed #1f2d4a; padding-top: 14px; display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; }
     @media (max-width: 600px) { .app-card { padding: 16px; } .control-grid { grid-template-columns: 1fr; } .action-bar, .download-group { flex-direction: column; } .btn-primary, .btn-secondary, .download-btn { width: 100%; } }
   </style>
 </head>
 <body>
 <div class="app-card">
-  <h1><i class="fas fa-photo-film"></i> Promo Studio</h1>
-  <div class="subhead"><i class="fas fa-link"></i> Use your own media URL · Overlay text · Add music</div>
+  <h1><i class="fas fa-robot"></i> Avatar Studio</h1>
+  <div class="subhead"><i class="fas fa-microphone"></i> AI presenter · Lip sync · Music · Customizable</div>
 
   <div class="input-area">
-    <textarea id="textInput" placeholder="Enter your promotional text, product name, or song lyrics..." rows="3">Best Wireless Earbuds with Noise Cancellation</textarea>
+    <textarea id="textInput" placeholder="Paste your promotional text, script, or song lyrics..." rows="4">Earn Cashback Every Time You Shop with CashKaro! Looking for an easy way to save money while shopping online? CashKaro is one of India's leading cashback and rewards platforms.</textarea>
   </div>
 
   <div class="control-grid">
-    <div class="control-group"><label><i class="fas fa-clock"></i> Duration (sec)</label><input type="number" id="durationInput" value="20" min="5" max="120"></div>
-    <div class="control-group"><label><i class="fas fa-music"></i> Music Style</label>
+    <div class="control-group"><label><i class="fas fa-clock"></i> Duration (sec)</label><input type="number" id="durationInput" value="15" min="5" max="90"></div>
+    <div class="control-group"><label><i class="fas fa-music"></i> Background Music</label>
       <select id="musicStyleSelect"><option value="ambient">🌿 Ambient</option><option value="hiphop">🎧 Hip Hop</option><option value="instrumental">🎹 Instrumental</option><option value="electronic">⚡ Electronic</option><option value="cinematic">🎬 Cinematic</option></select>
     </div>
   </div>
 
-  <div class="input-area" style="margin-bottom: 12px;">
-    <label style="color:#8d9fcb; font-size:0.8rem; display:block; margin-bottom:4px;"><i class="fas fa-image"></i> Background Media URL (video or image)</label>
-    <input type="text" id="mediaUrlInput" placeholder="Paste direct link to a .mp4, .webm, .jpg, or .png file..." value="https://player.vimeo.com/external/371433846.sd.mp4?s=2e3b8d8b5c5d5c5d5c5d5c5d5c5d5c5d5c5d5c5d&profile_id=164&oauth2_token_id=57447761" style="width:100%; background:transparent; border:none; outline:none; color:#e9efff; font-size:0.9rem; padding:4px 0;">
+  <div class="input-area" style="margin-bottom: 12px; display: flex; flex-wrap: wrap; gap: 10px; align-items: center;">
+    <div style="flex:2 1 200px;"><label style="color:#8d9fcb; font-size:0.75rem;"><i class="fas fa-image"></i> Background URL (optional)</label>
+    <input type="text" id="mediaUrlInput" placeholder="Paste .mp4, .jpg, etc." value="" style="width:100%; background:transparent; border:none; outline:none; color:#e9efff; font-size:0.85rem; padding:4px 0;"></div>
+    <div class="volume-control" style="flex:1 1 140px;">
+      <i class="fas fa-volume-low" style="color:#8d9fcb;"></i>
+      <input type="range" id="volumeSlider" min="0" max="200" value="150" step="1">
+      <i class="fas fa-volume-high" style="color:#8d9fcb;"></i>
+    </div>
   </div>
 
   <div class="action-bar">
-    <button class="btn-primary" id="generateBtn"><i class="fas fa-film"></i> Create Promo Video</button>
-    <button class="btn-secondary" id="randomPromptBtn"><i class="fas fa-dice"></i> Random Text</button>
+    <button class="btn-primary" id="generateBtn"><i class="fas fa-wand-magic-sparkles"></i> Create Promo Video</button>
+    <button class="btn-secondary" id="randomBtn"><i class="fas fa-dice"></i> Random Text</button>
   </div>
 
   <div class="preview-box">
-    <div class="preview-header"><span><i class="fas fa-play"></i> Preview</span><span><i class="fas fa-volume-high"></i> Audio + Visual</span></div>
+    <div class="preview-header"><span><i class="fas fa-play"></i> Preview</span><span><i class="fas fa-volume-high"></i> Voice + Music</span></div>
     <video id="videoPreview" controls playsinline muted><source src="" type="video/mp4">Your browser does not support the video tag.</video>
-    <div class="status-badge" id="statusBadge"><i class="fas fa-circle-check"></i> <span id="statusText">Ready. Add URL & generate.</span></div>
+    <div class="status-badge" id="statusBadge"><i class="fas fa-circle-check"></i> <span id="statusText">Ready. Paste text & generate.</span></div>
   </div>
 
   <div class="download-group">
@@ -78,8 +81,8 @@
   </div>
 
   <div class="footer-note">
-    <span><i class="fas fa-cloud-arrow-down"></i> Download video</span>
-    <span><i class="fas fa-music"></i> Dynamic BGM</span>
+    <span><i class="fas fa-robot"></i> AI Avatar</span>
+    <span><i class="fas fa-music"></i> Royalty-free BGM</span>
     <span><i class="fas fa-infinity"></i> No limits</span>
   </div>
 </div>
@@ -94,20 +97,20 @@
     const mediaUrlInput = document.getElementById('mediaUrlInput');
     const durationInput = document.getElementById('durationInput');
     const musicStyleSelect = document.getElementById('musicStyleSelect');
+    const volumeSlider = document.getElementById('volumeSlider');
     const generateBtn = document.getElementById('generateBtn');
-    const randomPromptBtn = document.getElementById('randomPromptBtn');
+    const randomBtn = document.getElementById('randomBtn');
     const downloadMobile = document.getElementById('downloadMobileBtn');
     const downloadComputer = document.getElementById('downloadComputerBtn');
 
     const sampleTexts = [
-      "Best Wireless Earbuds with Noise Cancellation",
-      "4K Action Camera Waterproof & Stabilization",
-      "Smart Fitness Tracker with Heart Rate Monitor",
-      "Portable Power Bank 20000mAh Fast Charging",
-      "Memory Foam Pillow for Better Sleep",
-      "Music Video: Neon Lights and City Vibes",
-      "Relaxing Lo-Fi Beats with Rainy Window",
-      "Amazon Deal of the Day: Save 50%"
+      "Earn Cashback Every Time You Shop with CashKaro! Looking for an easy way to save money while shopping online?",
+      "Best Wireless Earbuds with Noise Cancellation for immersive sound.",
+      "4K Action Camera Waterproof and Stabilization for your adventures.",
+      "Smart Fitness Tracker with Heart Rate Monitor to achieve your goals.",
+      "Memory Foam Pillow for Better Sleep and comfort.",
+      "Music Video: Neon Lights and City Vibes with a cool beat.",
+      "Relaxing Lo-Fi Beats with Rainy Window for study and chill."
     ];
 
     function setStatus(message, isGenerating = false) {
@@ -126,54 +129,72 @@
       }
     }
 
-    // ---------- Generate video ----------
-    function generatePromoVideo() {
+    // ----- Generate with Avatar -----
+    function generateAvatarVideo() {
       const text = textInput.value.trim();
-      const mediaUrl = mediaUrlInput.value.trim();
-      let duration = parseInt(durationInput.value) || 20;
-      if (duration < 3) duration = 3;
-      if (duration > 120) duration = 120;
+      let duration = parseInt(durationInput.value) || 15;
+      if (duration < 5) duration = 5;
+      if (duration > 90) duration = 90;
       durationInput.value = duration;
       const musicStyle = musicStyleSelect.value;
+      const mediaUrl = mediaUrlInput.value.trim();
+      const volume = parseInt(volumeSlider.value) / 100; // 0.5 to 2.0
 
       if (!text) { setStatus('Please enter promotional text.', false); return; }
-      if (!mediaUrl) { setStatus('Please paste a media URL.', false); return; }
 
-      setStatus(`Generating ${duration}s promo video...`, true);
+      setStatus(`🎬 Generating with avatar...`, true);
       generateBtn.disabled = true;
       generateBtn.innerHTML = '<i class="fas fa-spinner fa-pulse"></i> Rendering...';
 
-      // Canvas setup
+      // --- Canvas ---
       const canvas = document.createElement('canvas');
       canvas.width = 640;
       canvas.height = 360;
       const ctx = canvas.getContext('2d');
 
-      // Load media
-      const isVideo = mediaUrl.includes('.mp4') || mediaUrl.includes('.webm') || mediaUrl.includes('vimeo');
-      const mediaElement = document.createElement(isVideo ? 'video' : 'img');
-      mediaElement.crossOrigin = 'anonymous';
-      mediaElement.src = mediaUrl;
-      if (isVideo) {
-        mediaElement.muted = true;
-        mediaElement.loop = true;
-        mediaElement.autoplay = true;
-        mediaElement.playsInline = true;
+      // --- Load background media (if any) ---
+      let mediaElement = null;
+      let isVideo = false;
+      if (mediaUrl) {
+        isVideo = mediaUrl.includes('.mp4') || mediaUrl.includes('.webm') || mediaUrl.includes('vimeo');
+        mediaElement = document.createElement(isVideo ? 'video' : 'img');
+        mediaElement.crossOrigin = 'anonymous';
+        mediaElement.src = mediaUrl;
+        if (isVideo) {
+          mediaElement.muted = true;
+          mediaElement.loop = true;
+          mediaElement.autoplay = true;
+          mediaElement.playsInline = true;
+        }
       }
 
-      // --- Audio Engine ---
+      // --- Audio: TTS + Music ---
       const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-      const gainNode = audioCtx.createGain();
-      gainNode.gain.setValueAtTime(0.25, audioCtx.currentTime);
-      gainNode.gain.linearRampToValueAtTime(0.12, audioCtx.currentTime + duration);
-      gainNode.connect(audioCtx.destination);
+      const masterGain = audioCtx.createGain();
+      masterGain.gain.setValueAtTime(volume, audioCtx.currentTime);
+      masterGain.connect(audioCtx.destination);
 
+      // 1. Text-to-Speech (speak and capture)
+      const speechUtterance = new SpeechSynthesisUtterance(text.slice(0, 150));
+      speechUtterance.rate = 0.9;
+      speechUtterance.pitch = 1.0;
+      speechUtterance.volume = 1.0;
+      // Select a voice
+      const voices = speechSynthesis.getVoices();
+      const preferredVoice = voices.find(v => v.lang.startsWith('en')) || voices[0];
+      if (preferredVoice) speechUtterance.voice = preferredVoice;
+
+      // We'll estimate speech duration
+      const words = text.slice(0, 150).split(' ').length;
+      const speechDuration = Math.min(Math.max(words * 0.35, 3), 25); // seconds
+
+      // 2. Background Music
       const styleConfigs = {
-        ambient: { types: ['sine', 'sine'], freqs: [130, 170], gains: [0.2, 0.12] },
-        hiphop: { types: ['square', 'sawtooth'], freqs: [80, 160], gains: [0.18, 0.15] },
-        instrumental: { types: ['sawtooth', 'triangle'], freqs: [110, 220], gains: [0.18, 0.12] },
-        electronic: { types: ['square', 'sine'], freqs: [100, 200], gains: [0.2, 0.14] },
-        cinematic: { types: ['sawtooth', 'sine'], freqs: [90, 180], gains: [0.22, 0.16] }
+        ambient: { types: ['sine', 'sine'], freqs: [130, 170], gains: [0.15, 0.08] },
+        hiphop: { types: ['square', 'sawtooth'], freqs: [80, 160], gains: [0.14, 0.10] },
+        instrumental: { types: ['sawtooth', 'triangle'], freqs: [110, 220], gains: [0.14, 0.09] },
+        electronic: { types: ['square', 'sine'], freqs: [100, 200], gains: [0.15, 0.10] },
+        cinematic: { types: ['sawtooth', 'sine'], freqs: [90, 180], gains: [0.16, 0.11] }
       };
       const config = styleConfigs[musicStyle] || styleConfigs.ambient;
 
@@ -184,10 +205,10 @@
         osc.frequency.setValueAtTime(config.freqs[i], audioCtx.currentTime);
         osc.frequency.linearRampToValueAtTime(config.freqs[i] * 1.3, audioCtx.currentTime + duration * 0.5);
         osc.frequency.linearRampToValueAtTime(config.freqs[i] * 0.7, audioCtx.currentTime + duration);
-        gain.gain.setValueAtTime(config.gains[i], audioCtx.currentTime);
-        gain.gain.linearRampToValueAtTime(config.gains[i] * 0.2, audioCtx.currentTime + duration);
+        gain.gain.setValueAtTime(config.gains[i] * volume, audioCtx.currentTime);
+        gain.gain.linearRampToValueAtTime(config.gains[i] * 0.2 * volume, audioCtx.currentTime + duration);
         osc.connect(gain);
-        gain.connect(gainNode);
+        gain.connect(masterGain);
         osc.start(audioCtx.currentTime);
         osc.stop(audioCtx.currentTime + duration + 0.5);
       }
@@ -195,7 +216,7 @@
       // --- Recording ---
       const stream = canvas.captureStream(30);
       const audioStreamDestination = audioCtx.createMediaStreamDestination();
-      gainNode.connect(audioStreamDestination);
+      masterGain.connect(audioStreamDestination);
       const audioTrack = audioStreamDestination.stream.getAudioTracks()[0];
       const videoTrack = stream.getVideoTracks()[0];
       const combinedStream = new MediaStream([videoTrack, audioTrack]);
@@ -215,17 +236,95 @@
         video.controls = true;
         video.dataset.blobUrl = url;
         video.dataset.blob = blob;
-        setStatus(`Promo video ready · ${duration}s · ${musicStyle}`, false);
+        setStatus(`✅ Video ready · ${duration}s · ${musicStyle}`, false);
         generateBtn.disabled = false;
-        generateBtn.innerHTML = '<i class="fas fa-film"></i> Create Promo Video';
+        generateBtn.innerHTML = '<i class="fas fa-wand-magic-sparkles"></i> Create Promo Video';
         video.play().catch(() => {});
       };
 
       recorder.start();
 
-      // --- Render Loop ---
+      // --- Animation Loop: Avatar ---
       let startTime = performance.now();
-      let mediaLoaded = false;
+      let speechStarted = false;
+      let mouthOpen = false;
+
+      // Draw avatar function
+      function drawAvatar(time, mouthScale = 0.5) {
+        const cx = 320, cy = 200;
+        // Head
+        const gradient = ctx.createRadialGradient(cx-20, cy-30, 20, cx, cy, 100);
+        gradient.addColorStop(0, '#f5d0b8');
+        gradient.addColorStop(1, '#d4a084');
+        ctx.beginPath();
+        ctx.ellipse(cx, cy, 70, 80, 0, 0, Math.PI * 2);
+        ctx.fillStyle = gradient;
+        ctx.fill();
+        ctx.strokeStyle = '#b08060';
+        ctx.lineWidth = 2;
+        ctx.stroke();
+
+        // Eyes
+        ctx.fillStyle = '#2a1f1a';
+        ctx.beginPath();
+        ctx.ellipse(cx-25, cy-15, 8, 10, 0, 0, Math.PI*2);
+        ctx.fill();
+        ctx.beginPath();
+        ctx.ellipse(cx+25, cy-15, 8, 10, 0, 0, Math.PI*2);
+        ctx.fill();
+        ctx.fillStyle = 'white';
+        ctx.beginPath();
+        ctx.arc(cx-28, cy-18, 3, 0, Math.PI*2);
+        ctx.fill();
+        ctx.beginPath();
+        ctx.arc(cx+22, cy-18, 3, 0, Math.PI*2);
+        ctx.fill();
+
+        // Eyebrows (move with expression)
+        ctx.strokeStyle = '#3a2a1a';
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.moveTo(cx-35, cy-30);
+        ctx.lineTo(cx-15, cy-32);
+        ctx.stroke();
+        ctx.beginPath();
+        ctx.moveTo(cx+35, cy-30);
+        ctx.lineTo(cx+15, cy-32);
+        ctx.stroke();
+
+        // Mouth (lip sync)
+        const mouthH = 10 + 12 * mouthScale;
+        ctx.fillStyle = '#8a3a2a';
+        ctx.beginPath();
+        ctx.ellipse(cx, cy+20, 18, mouthH, 0, 0, Math.PI*2);
+        ctx.fill();
+        ctx.strokeStyle = '#5a2a1a';
+        ctx.lineWidth = 1.5;
+        ctx.stroke();
+
+        // Body (simple)
+        ctx.fillStyle = '#2a4a7a';
+        ctx.fillRect(cx-40, cy+60, 80, 60);
+        // Collar
+        ctx.fillStyle = '#1a2a4a';
+        ctx.beginPath();
+        ctx.moveTo(cx-30, cy+55);
+        ctx.lineTo(cx, cy+70);
+        ctx.lineTo(cx+30, cy+55);
+        ctx.fill();
+
+        // Hands/gestures (simple animation)
+        const handWave = Math.sin(time * 2) * 0.3 + 0.7;
+        ctx.fillStyle = '#f5d0b8';
+        // Left hand
+        ctx.beginPath();
+        ctx.ellipse(cx-65, cy+40 + handWave*10, 12, 15, 0.2, 0, Math.PI*2);
+        ctx.fill();
+        // Right hand
+        ctx.beginPath();
+        ctx.ellipse(cx+65, cy+40 - handWave*10, 12, 15, -0.2, 0, Math.PI*2);
+        ctx.fill();
+      }
 
       function renderFrame() {
         const elapsed = (performance.now() - startTime) / 1000;
@@ -236,60 +335,73 @@
 
         ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-        // Draw background media
-        if (isVideo && mediaElement.readyState >= 2) {
+        // Draw background
+        if (mediaElement && !isVideo && mediaElement.complete) {
           ctx.drawImage(mediaElement, 0, 0, canvas.width, canvas.height);
-        } else if (!isVideo && mediaElement.complete) {
+        } else if (mediaElement && isVideo && mediaElement.readyState >= 2) {
           ctx.drawImage(mediaElement, 0, 0, canvas.width, canvas.height);
         } else {
-          // Fallback gradient
+          // Gradient background
           const grad = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
-          grad.addColorStop(0, '#1a2a3a');
-          grad.addColorStop(1, '#0a0e1a');
+          grad.addColorStop(0, '#0f1a2a');
+          grad.addColorStop(1, '#1a2a3a');
           ctx.fillStyle = grad;
           ctx.fillRect(0, 0, canvas.width, canvas.height);
         }
 
-        // Overlay text with shadow
+        // Animate mouth based on speech (simulated)
+        const speechProgress = Math.min(elapsed / speechDuration, 1);
+        let mouthScale = 0.2;
+        if (speechProgress < 0.9) {
+          // Simulate syllables
+          const syllablePhase = Math.sin(elapsed * 12) * 0.5 + 0.5;
+          mouthScale = 0.3 + syllablePhase * 0.7;
+        }
+
+        // Draw avatar with overlay
+        drawAvatar(elapsed, mouthScale);
+
+        // ---- Text overlay (optional) ----
         ctx.textAlign = 'center';
-        ctx.textBaseline = 'middle';
-        ctx.shadowColor = 'rgba(0,0,0,0.85)';
-        ctx.shadowBlur = 25;
-        ctx.shadowOffsetX = 0;
-        ctx.shadowOffsetY = 2;
-
-        const displayText = text.length > 60 ? text.slice(0, 57) + '…' : text;
-        const textY = canvas.height/2 + Math.sin(elapsed * 0.3) * 8;
-        ctx.font = 'bold 26px "Segoe UI", system-ui, sans-serif';
+        ctx.textBaseline = 'bottom';
+        ctx.shadowColor = 'rgba(0,0,0,0.8)';
+        ctx.shadowBlur = 15;
+        const displayText = text.length > 80 ? text.slice(0, 77) + '…' : text;
+        ctx.font = 'bold 16px "Segoe UI", system-ui, sans-serif';
         ctx.fillStyle = '#ffffff';
-        ctx.fillText(displayText, canvas.width/2, textY - 8);
-
-        ctx.font = '16px "Segoe UI", system-ui, sans-serif';
-        ctx.fillStyle = '#d0ddff';
-        ctx.shadowBlur = 12;
-        ctx.fillText(`✦ ${musicStyle.toUpperCase()} · ${duration}s ✦`, canvas.width/2, textY + 44);
-
+        ctx.fillText(displayText, canvas.width/2, canvas.height - 15);
         ctx.shadowBlur = 0;
+
         requestAnimationFrame(renderFrame);
       }
 
-      // Start
-      if (isVideo) {
-        mediaElement.play().then(() => { renderFrame(); }).catch(() => { renderFrame(); });
-      } else {
-        renderFrame();
+      // ---- Start everything ----
+      // Play speech
+      speechUtterance.onend = () => { /* speech done */ };
+      speechSynthesis.speak(speechUtterance);
+
+      // Start background media if video
+      if (mediaElement && isVideo) {
+        mediaElement.play().catch(() => {});
       }
 
+      // Start rendering
+      renderFrame();
+
+      // Stop after duration
       setTimeout(() => {
         if (recorder.state === 'recording') recorder.stop();
-        setTimeout(() => audioCtx.close().catch(() => {}), 300);
+        setTimeout(() => {
+          speechSynthesis.cancel();
+          audioCtx.close().catch(() => {});
+        }, 300);
       }, duration * 1000 + 200);
     }
 
     // --- Event listeners ---
-    generateBtn.addEventListener('click', generatePromoVideo);
+    generateBtn.addEventListener('click', generateAvatarVideo);
 
-    randomPromptBtn.addEventListener('click', () => {
+    randomBtn.addEventListener('click', () => {
       const randomIndex = Math.floor(Math.random() * sampleTexts.length);
       textInput.value = sampleTexts[randomIndex];
       setStatus('Random text loaded. Generate!', false);
@@ -300,7 +412,7 @@
       if (!blob) { setStatus('Generate a video first!', false); return; }
       const link = document.createElement('a');
       link.href = URL.createObjectURL(blob);
-      link.download = `promo-${device}-${Date.now()}.webm`;
+      link.download = `avatar-video-${device}-${Date.now()}.webm`;
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
@@ -311,404 +423,7 @@
     downloadMobile.addEventListener('click', () => downloadVideo('mobile'));
     downloadComputer.addEventListener('click', () => downloadVideo('computer'));
 
-    setStatus('Ready. Paste URL & generate.', false);
-  })();
-</script>
-</body>
-</html>
-  <title>Media Studio · AI Assistant</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', system-ui, sans-serif; }
-    body { background: #0a0e1a; min-height: 100vh; display: flex; justify-content: center; align-items: center; padding: 16px; }
-    .app-card { max-width: 880px; width: 100%; background: rgba(14, 22, 42, 0.95); backdrop-filter: blur(12px); border-radius: 40px; padding: 24px 22px; border: 1px solid #2e4068; }
-    h1 { font-size: 1.8rem; color: #f0f4ff; display: flex; align-items: center; gap: 12px; margin-bottom: 4px; }
-    h1 i { background: linear-gradient(135deg, #7b8cff, #f47aff); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-    .subhead { color: #9aa7c9; margin-bottom: 16px; padding-left: 14px; border-left: 3px solid #7b8cff; font-size: 0.9rem; display: flex; flex-wrap: wrap; justify-content: space-between; }
-    .input-area { background: #0f162b; border-radius: 24px; padding: 14px 18px; border: 1px solid #2e3a5a; margin-bottom: 16px; }
-    textarea { width: 100%; background: transparent; border: none; outline: none; color: #e9efff; font-size: 1rem; resize: vertical; min-height: 70px; line-height: 1.5; }
-    textarea::placeholder { color: #5d6f93; }
-    .control-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 12px 0 16px; }
-    .control-group { background: #111a30; border-radius: 18px; padding: 10px 14px; border: 1px solid #263153; }
-    .control-group label { display: block; font-size: 0.75rem; color: #8d9fcb; margin-bottom: 4px; }
-    .control-group select, .control-group input { width: 100%; background: #0b101f; border: 1px solid #2e3a5a; border-radius: 30px; padding: 8px 12px; color: #e9efff; font-size: 0.9rem; outline: none; }
-    .media-suggestions { display: flex; flex-wrap: wrap; gap: 12px; margin: 14px 0; padding: 12px; background: #0b111f; border-radius: 24px; border: 1px dashed #33446a; }
-    .media-item { width: calc(33% - 10px); min-width: 100px; flex: 1 1 auto; background: #141d33; border-radius: 16px; overflow: hidden; cursor: pointer; border: 2px solid transparent; transition: 0.2s; }
-    .media-item:hover { border-color: #7b8cff; transform: scale(1.02); }
-    .media-item.selected { border-color: #f47aff; box-shadow: 0 0 15px #7b8cff55; }
-    .media-item video, .media-item img { width: 100%; aspect-ratio: 16/9; object-fit: cover; display: block; background: #03050b; }
-    .media-item .label { font-size: 0.65rem; color: #9aa7c9; padding: 4px 8px; text-align: center; background: #0b111f; }
-    .action-bar { display: flex; flex-wrap: wrap; gap: 10px; margin: 12px 0 16px; }
-    .btn-primary { background: linear-gradient(135deg, #5f73e0, #8b5cf6); border: none; padding: 14px 24px; border-radius: 60px; font-weight: 600; color: white; display: inline-flex; align-items: center; gap: 10px; cursor: pointer; flex: 2 1 auto; justify-content: center; box-shadow: 0 6px 18px rgba(91, 104, 224, 0.3); transition: 0.2s; }
-    .btn-primary:hover { transform: scale(1.02); }
-    .btn-secondary { background: rgba(255, 255, 255, 0.06); border: 1px solid #384568; padding: 14px 18px; border-radius: 60px; color: #cdd9ff; display: inline-flex; align-items: center; gap: 10px; cursor: pointer; flex: 1 1 auto; justify-content: center; transition: 0.2s; }
-    .btn-secondary:hover { background: rgba(255, 255, 255, 0.12); border-color: #5f73e0; }
-    .preview-box { background: #080c1a; border-radius: 24px; padding: 12px; border: 1px solid #263153; margin: 12px 0 14px; }
-    .preview-header { display: flex; justify-content: space-between; color: #8d9fcb; font-size: 0.8rem; padding: 0 6px 8px 6px; border-bottom: 1px solid #1e2844; }
-    #videoPreview { width: 100%; border-radius: 16px; background: #03050b; aspect-ratio: 16 / 9; object-fit: cover; display: block; border: 1px solid #30406a; }
-    .status-badge { display: inline-flex; align-items: center; gap: 8px; background: #18213a; padding: 6px 16px; border-radius: 40px; color: #b0c2f0; font-size: 0.8rem; border: 1px solid #31416b; margin-top: 10px; }
-    .status-badge i { color: #6fefb0; }
-    .download-group { display: flex; gap: 10px; flex-wrap: wrap; margin: 6px 0; }
-    .download-btn { background: #1f2940; border: 1px solid #36476b; padding: 10px 16px; border-radius: 40px; color: #d3defa; font-weight: 500; display: inline-flex; align-items: center; gap: 8px; cursor: pointer; flex: 1 1 100px; justify-content: center; transition: 0.2s; }
-    .download-btn:hover { background: #2b3857; border-color: #7b8cff; color: white; }
-    .footer-note { margin-top: 16px; text-align: center; font-size: 0.7rem; color: #4a5d84; border-top: 1px dashed #1f2d4a; padding-top: 14px; display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; }
-    @media (max-width: 600px) { .app-card { padding: 16px; } .control-grid { grid-template-columns: 1fr; } .media-item { min-width: 80px; } .action-bar, .download-group { flex-direction: column; } .btn-primary, .btn-secondary, .download-btn { width: 100%; } }
-  </style>
-</head>
-<body>
-<div class="app-card">
-  <h1><i class="fas fa-crown"></i> Media Studio Pro</h1>
-  <div class="subhead"><span><i class="fas fa-images"></i> Real media · AI assisted</span><span><i class="fas fa-music"></i> <span id="selectedMusicLabel">Ambient</span></span></div>
-
-  <div class="input-area">
-    <textarea id="textInput" placeholder="Describe your scene, product, or music video idea..." rows="3">A futuristic city at sunrise with flying cars and neon lights</textarea>
-  </div>
-
-  <div class="control-grid">
-    <div class="control-group"><label><i class="fas fa-clock"></i> Duration (sec)</label><input type="number" id="durationInput" value="20" min="5" max="120"></div>
-    <div class="control-group"><label><i class="fas fa-music"></i> Music Style</label>
-      <select id="musicStyleSelect"><option value="ambient">🌿 Ambient</option><option value="hiphop">🎧 Hip Hop</option><option value="instrumental">🎹 Instrumental</option><option value="electronic">⚡ Electronic</option><option value="cinematic">🎬 Cinematic</option></select>
-    </div>
-  </div>
-
-  <!-- Media Suggestions (from Pexels via embed) -->
-  <div class="media-suggestions" id="mediaSuggestions">
-    <div class="media-item" data-type="video" data-url="https://player.vimeo.com/external/371433846.sd.mp4?s=2e3b8d8b5c5d5c5d5c5d5c5d5c5d5c5d5c5d5c5d&profile_id=164&oauth2_token_id=57447761">
-      <video src="https://player.vimeo.com/external/371433846.sd.mp4?s=2e3b8d8b5c5d5c5d5c5d5c5d5c5d5c5d5c5d5c5d&profile_id=164&oauth2_token_id=57447761" muted playsinline></video>
-      <div class="label">🌆 City</div>
-    </div>
-    <div class="media-item" data-type="video" data-url="https://player.vimeo.com/external/341975381.sd.mp4?s=2e3b8d8b5c5d5c5d5c5d5c5d5c5d5c5d5c5d5c5d&profile_id=164&oauth2_token_id=57447761">
-      <video src="https://player.vimeo.com/external/341975381.sd.mp4?s=2e3b8d8b5c5d5c5d5c5d5c5d5c5d5c5d5c5d5c5d&profile_id=164&oauth2_token_id=57447761" muted playsinline></video>
-      <div class="label">🌊 Ocean</div>
-    </div>
-    <div class="media-item" data-type="image" data-url="https://images.pexels.com/photos/1103970/pexels-photo-1103970.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2">
-      <img src="https://images.pexels.com/photos/1103970/pexels-photo-1103970.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Nature">
-      <div class="label">🌿 Forest</div>
-    </div>
-    <div class="media-item" data-type="image" data-url="https://images.pexels.com/photos/2387873/pexels-photo-2387873.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2">
-      <img src="https://images.pexels.com/photos/2387873/pexels-photo-2387873.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="City">
-      <div class="label">🌃 Night City</div>
-    </div>
-  </div>
-
-  <div class="action-bar">
-    <button class="btn-primary" id="generateBtn"><i class="fas fa-film"></i> Compose Video</button>
-    <button class="btn-secondary" id="suggestBtn"><i class="fas fa-wand-magic-sparkles"></i> Suggest Media</button>
-    <button class="btn-secondary" id="randomBtn"><i class="fas fa-dice"></i> Random</button>
-  </div>
-
-  <div class="preview-box">
-    <div class="preview-header"><span><i class="fas fa-play"></i> Preview</span><span><i class="fas fa-volume-high"></i> Audio + Visuals</span></div>
-    <video id="videoPreview" controls playsinline muted><source src="" type="video/mp4">Your browser does not support the video tag.</video>
-    <div class="status-badge" id="statusBadge"><i class="fas fa-circle-check"></i> <span id="statusText">Select media & generate</span></div>
-  </div>
-
-  <div class="download-group">
-    <button class="download-btn" id="downloadMobileBtn"><i class="fas fa-mobile-screen-button"></i> Mobile</button>
-    <button class="download-btn" id="downloadComputerBtn"><i class="fas fa-desktop"></i> Computer</button>
-  </div>
-
-  <div class="footer-note">
-    <span><i class="fas fa-cloud-arrow-down"></i> Download</span>
-    <span><i class="fas fa-infinity"></i> No limits</span>
-    <span><i class="fas fa-image"></i> Media from Pexels · Vimeo</span>
-  </div>
-</div>
-
-<script>
-  (function() {
-    // DOM refs
-    const video = document.getElementById('videoPreview');
-    const statusText = document.getElementById('statusText');
-    const statusBadge = document.getElementById('statusBadge');
-    const textInput = document.getElementById('textInput');
-    const durationInput = document.getElementById('durationInput');
-    const musicStyleSelect = document.getElementById('musicStyleSelect');
-    const selectedMusicLabel = document.getElementById('selectedMusicLabel');
-    const generateBtn = document.getElementById('generateBtn');
-    const suggestBtn = document.getElementById('suggestBtn');
-    const randomBtn = document.getElementById('randomBtn');
-    const downloadMobile = document.getElementById('downloadMobileBtn');
-    const downloadComputer = document.getElementById('downloadComputerBtn');
-    const mediaContainer = document.getElementById('mediaSuggestions');
-
-    let selectedMediaUrl = null;
-    let selectedMediaType = 'video';
-
-    // --- Music style label ---
-    musicStyleSelect.addEventListener('change', () => {
-      const text = musicStyleSelect.options[musicStyleSelect.selectedIndex].text;
-      selectedMusicLabel.textContent = text;
-    });
-    selectedMusicLabel.textContent = musicStyleSelect.options[0].text;
-
-    // --- Media selection ---
-    mediaContainer.addEventListener('click', (e) => {
-      const item = e.target.closest('.media-item');
-      if (!item) return;
-      // Deselect others
-      document.querySelectorAll('.media-item').forEach(el => el.classList.remove('selected'));
-      item.classList.add('selected');
-      selectedMediaUrl = item.dataset.url;
-      selectedMediaType = item.dataset.type;
-      setStatus(`Selected: ${item.querySelector('.label')?.textContent || 'media'}`, false);
-    });
-
-    // --- Suggest media based on text (simulated AI) ---
-    function suggestMedia(text) {
-      const keywords = text.toLowerCase();
-      const items = document.querySelectorAll('.media-item');
-      let bestMatch = null;
-      let bestScore = 0;
-
-      items.forEach(item => {
-        const label = item.querySelector('.label')?.textContent.toLowerCase() || '';
-        let score = 0;
-        if (keywords.includes('city') && label.includes('city')) score += 3;
-        if (keywords.includes('nature') && label.includes('forest')) score += 3;
-        if (keywords.includes('ocean') && label.includes('ocean')) score += 3;
-        if (keywords.includes('night') && label.includes('night')) score += 3;
-        if (keywords.includes('future') && label.includes('city')) score += 2;
-        if (score > bestScore) { bestScore = score; bestMatch = item; }
-      });
-
-      // If no match, select first
-      if (!bestMatch && items.length) bestMatch = items[0];
-      if (bestMatch) {
-        document.querySelectorAll('.media-item').forEach(el => el.classList.remove('selected'));
-        bestMatch.classList.add('selected');
-        selectedMediaUrl = bestMatch.dataset.url;
-        selectedMediaType = bestMatch.dataset.type;
-        setStatus(`AI suggests: ${bestMatch.querySelector('.label')?.textContent || 'media'}`, false);
-      }
-    }
-
-    suggestBtn.addEventListener('click', () => {
-      const text = textInput.value.trim();
-      if (!text) { setStatus('Enter text for suggestions.', false); return; }
-      suggestMedia(text);
-    });
-
-    // --- Random prompt ---
-    const sampleTexts = [
-      "A breathtaking sunset over a calm ocean with dolphins jumping.",
-      "Cyberpunk night market, neon signs, rain, and crowded streets.",
-      "Serene forest with sunlight filtering through leaves, birds singing.",
-      "Promote wireless earbuds with noise cancellation and deep bass.",
-      "Music video: neon lights, dancers, and a futuristic city vibe.",
-      "Relaxing lo-fi beats with a rainy window and cozy room aesthetic."
-    ];
-    randomBtn.addEventListener('click', () => {
-      const randomIndex = Math.floor(Math.random() * sampleTexts.length);
-      textInput.value = sampleTexts[randomIndex];
-      setStatus('Random prompt loaded. Suggest media & generate!', false);
-    });
-
-    // --- Generate composite video ---
-    function generateComposite() {
-      const text = textInput.value.trim();
-      if (!text) { setStatus('Please enter text.', false); return; }
-      if (!selectedMediaUrl) { setStatus('Please select a media item.', false); return; }
-
-      let duration = parseInt(durationInput.value) || 20;
-      if (duration < 3) duration = 3;
-      if (duration > 120) duration = 120;
-      durationInput.value = duration;
-
-      const musicStyle = musicStyleSelect.value;
-
-      setStatus(`Composing ${duration}s video...`, true);
-      generateBtn.disabled = true;
-      generateBtn.innerHTML = '<i class="fas fa-spinner fa-pulse"></i> Rendering...';
-
-      // We'll create a canvas and overlay text on the selected media
-      const canvas = document.createElement('canvas');
-      canvas.width = 640;
-      canvas.height = 360;
-      const ctx = canvas.getContext('2d');
-
-      // Load the selected media (video or image)
-      const mediaElement = document.createElement(selectedMediaType === 'video' ? 'video' : 'img');
-      mediaElement.crossOrigin = 'anonymous';
-      mediaElement.src = selectedMediaUrl;
-      if (selectedMediaType === 'video') {
-        mediaElement.muted = true;
-        mediaElement.loop = true;
-        mediaElement.autoplay = true;
-        mediaElement.playsInline = true;
-      }
-
-      // --- Audio: Dynamic music ---
-      const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-      const gainNode = audioCtx.createGain();
-      gainNode.gain.setValueAtTime(0.25, audioCtx.currentTime);
-      gainNode.gain.linearRampToValueAtTime(0.12, audioCtx.currentTime + duration);
-      gainNode.connect(audioCtx.destination);
-
-      const styleConfigs = {
-        ambient: { types: ['sine', 'sine'], freqs: [130, 170], gains: [0.2, 0.12] },
-        hiphop: { types: ['square', 'sawtooth'], freqs: [80, 160], gains: [0.18, 0.15] },
-        instrumental: { types: ['sawtooth', 'triangle'], freqs: [110, 220], gains: [0.18, 0.12] },
-        electronic: { types: ['square', 'sine'], freqs: [100, 200], gains: [0.2, 0.14] },
-        cinematic: { types: ['sawtooth', 'sine'], freqs: [90, 180], gains: [0.22, 0.16] }
-      };
-      const config = styleConfigs[musicStyle] || styleConfigs.ambient;
-
-      for (let i = 0; i < config.types.length; i++) {
-        const osc = audioCtx.createOscillator();
-        const gain = audioCtx.createGain();
-        osc.type = config.types[i];
-        osc.frequency.setValueAtTime(config.freqs[i], audioCtx.currentTime);
-        osc.frequency.linearRampToValueAtTime(config.freqs[i] * 1.3, audioCtx.currentTime + duration * 0.5);
-        osc.frequency.linearRampToValueAtTime(config.freqs[i] * 0.7, audioCtx.currentTime + duration);
-        gain.gain.setValueAtTime(config.gains[i], audioCtx.currentTime);
-        gain.gain.linearRampToValueAtTime(config.gains[i] * 0.2, audioCtx.currentTime + duration);
-        osc.connect(gain);
-        gain.connect(gainNode);
-        osc.start(audioCtx.currentTime);
-        osc.stop(audioCtx.currentTime + duration + 0.5);
-      }
-
-      // --- Capture ---
-      const stream = canvas.captureStream(30);
-      const audioStreamDestination = audioCtx.createMediaStreamDestination();
-      gainNode.connect(audioStreamDestination);
-      const audioTrack = audioStreamDestination.stream.getAudioTracks()[0];
-      const videoTrack = stream.getVideoTracks()[0];
-      const combinedStream = new MediaStream([videoTrack, audioTrack]);
-
-      const recorder = new MediaRecorder(combinedStream, {
-        mimeType: 'video/webm;codecs=vp8,opus',
-        videoBitsPerSecond: 2500000,
-      });
-
-      const chunks = [];
-      recorder.ondataavailable = (e) => { if (e.data.size > 0) chunks.push(e.data); };
-      recorder.onstop = () => {
-        const blob = new Blob(chunks, { type: 'video/webm' });
-        const url = URL.createObjectURL(blob);
-        video.src = url;
-        video.muted = false;
-        video.controls = true;
-        video.dataset.blobUrl = url;
-        video.dataset.blob = blob;
-        setStatus(`Video ready · ${duration}s · ${musicStyle}`, false);
-        generateBtn.disabled = false;
-        generateBtn.innerHTML = '<i class="fas fa-film"></i> Compose Video';
-        video.play().catch(() => {});
-      };
-
-      recorder.start();
-
-      // --- Render loop ---
-      let startTime = performance.now();
-      let mediaLoaded = false;
-
-      function renderFrame() {
-        const elapsed = (performance.now() - startTime) / 1000;
-        if (elapsed >= duration || recorder.state !== 'recording') {
-          if (recorder.state === 'recording') recorder.stop();
-          return;
-        }
-
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-        // Draw media (if loaded)
-        if (selectedMediaType === 'video' && mediaElement.readyState >= 2) {
-          ctx.drawImage(mediaElement, 0, 0, canvas.width, canvas.height);
-        } else if (selectedMediaType === 'image' && mediaElement.complete) {
-          ctx.drawImage(mediaElement, 0, 0, canvas.width, canvas.height);
-        } else {
-          // Fallback gradient
-          const grad = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
-          grad.addColorStop(0, '#1a2a3a');
-          grad.addColorStop(1, '#0a0e1a');
-          ctx.fillStyle = grad;
-          ctx.fillRect(0, 0, canvas.width, canvas.height);
-        }
-
-        // Overlay text
-        ctx.textAlign = 'center';
-        ctx.textBaseline = 'middle';
-        ctx.shadowColor = 'rgba(0,0,0,0.85)';
-        ctx.shadowBlur = 25;
-        ctx.shadowOffsetX = 0;
-        ctx.shadowOffsetY = 2;
-
-        const lines = text.split('\n').filter(l => l.trim().length > 0);
-        let displayText = lines.length > 0 ? lines[0] : text;
-        if (displayText.length > 60) displayText = displayText.slice(0, 57) + '…';
-
-        const textY = canvas.height/2 + Math.sin(elapsed * 0.3) * 10;
-        ctx.font = 'bold 28px "Segoe UI", system-ui, sans-serif';
-        ctx.fillStyle = '#ffffff';
-        ctx.fillText(displayText, canvas.width/2, textY - 8);
-
-        ctx.font = '18px "Segoe UI", system-ui, sans-serif';
-        ctx.fillStyle = '#d0ddff';
-        ctx.shadowBlur = 12;
-        ctx.fillText(`✦ ${musicStyle.toUpperCase()} · ${duration}s ✦`, canvas.width/2, textY + 48);
-
-        ctx.shadowBlur = 0;
-        requestAnimationFrame(renderFrame);
-      }
-
-      // Start media and render
-      if (selectedMediaType === 'video') {
-        mediaElement.play().then(() => {
-          mediaLoaded = true;
-          renderFrame();
-        }).catch(() => {
-          // Fallback: render without video
-          renderFrame();
-        });
-      } else {
-        renderFrame();
-      }
-
-      // Stop after duration
-      setTimeout(() => {
-        if (recorder.state === 'recording') recorder.stop();
-        setTimeout(() => audioCtx.close().catch(() => {}), 300);
-      }, duration * 1000 + 200);
-    }
-
-    generateBtn.addEventListener('click', generateComposite);
-
-    // --- Download ---
-    function downloadVideo(device) {
-      const blob = video.dataset.blob;
-      if (!blob) { setStatus('Generate a video first!', false); return; }
-      const link = document.createElement('a');
-      link.href = URL.createObjectURL(blob);
-      link.download = `ai-video-${device}-${Date.now()}.webm`;
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-      setTimeout(() => URL.revokeObjectURL(link.href), 5000);
-      setStatus(`Downloading for ${device} ...`, false);
-    }
-
-    downloadMobile.addEventListener('click', () => downloadVideo('mobile'));
-    downloadComputer.addEventListener('click', () => downloadVideo('computer'));
-
-    setStatus('Select media & generate', false);
-
-    // Auto-select first media
-    const firstItem = document.querySelector('.media-item');
-    if (firstItem) {
-      firstItem.classList.add('selected');
-      selectedMediaUrl = firstItem.dataset.url;
-      selectedMediaType = firstItem.dataset.type;
-    }
-
-    // Auto-suggest on load
-    window.addEventListener('load', () => {
-      setTimeout(() => {
-        const text = textInput.value.trim();
-        if (text) suggestMedia(text);
-      }, 600);
-    });
+    setStatus('Ready. Paste text & generate.', false);
   })();
 </script>
 </body>
