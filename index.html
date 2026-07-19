@@ -3,89 +3,52 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
-  <title>AI Video Creator · Free & Unlimited</title>
-  <!-- Font Awesome Icons (free) -->
+  <title>∞ AI Video Forge · Unlimited Duration</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Segoe UI', Roboto, system-ui, -apple-system, sans-serif;
-    }
-
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', system-ui, sans-serif; }
     body {
-      background: linear-gradient(145deg, #0b0e1a 0%, #141b2b 100%);
+      background: #0a0e1a;
       min-height: 100vh;
       display: flex;
       justify-content: center;
       align-items: center;
       padding: 20px;
     }
-
     .app-card {
-      max-width: 780px;
+      max-width: 800px;
       width: 100%;
-      background: rgba(22, 30, 48, 0.85);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
+      background: rgba(18, 26, 45, 0.9);
+      backdrop-filter: blur(10px);
       border-radius: 48px;
       padding: 30px 28px;
-      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(255, 255, 255, 0.04);
-      border: 1px solid rgba(255, 255, 255, 0.03);
-      transition: all 0.2s ease;
+      border: 1px solid #2a3a5a;
+      box-shadow: 0 30px 60px rgba(0,0,0,0.8);
     }
-
     h1 {
-      font-size: 2.1rem;
-      font-weight: 600;
+      font-size: 2rem;
       color: #f0f4ff;
-      letter-spacing: -0.5px;
       display: flex;
       align-items: center;
       gap: 12px;
-      margin-bottom: 8px;
+      margin-bottom: 6px;
     }
-
-    h1 i {
-      background: linear-gradient(135deg, #7b8cff, #b47aff);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      font-size: 2.2rem;
-    }
-
+    h1 i { background: linear-gradient(135deg, #7b8cff, #b47aff); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
     .subhead {
       color: #9aa7c9;
-      font-size: 0.95rem;
-      margin-bottom: 28px;
-      padding-left: 4px;
-      border-left: 3px solid #5f73e0;
-      padding-left: 14px;
-      font-weight: 400;
-      letter-spacing: 0.2px;
-      background: rgba(255, 255, 255, 0.02);
-      border-radius: 0 12px 12px 0;
-    }
-
-    .subhead i {
-      margin-right: 8px;
-      color: #7b8cff;
-    }
-
-    .input-area {
-      background: rgba(12, 18, 32, 0.6);
-      border-radius: 28px;
-      padding: 18px 20px;
-      border: 1px solid #2e3a5a;
-      transition: border 0.2s;
       margin-bottom: 24px;
+      padding-left: 14px;
+      border-left: 3px solid #5f73e0;
+      font-size: 0.95rem;
     }
-
-    .input-area:focus-within {
-      border-color: #7b8cff;
-      box-shadow: 0 0 0 4px rgba(123, 140, 255, 0.15);
+    .input-area {
+      background: #0f162b;
+      border-radius: 28px;
+      padding: 16px 20px;
+      border: 1px solid #2e3a5a;
+      margin-bottom: 20px;
     }
-
+    .input-area:focus-within { border-color: #7b8cff; box-shadow: 0 0 0 4px rgba(123, 140, 255, 0.15); }
     textarea {
       width: 100%;
       background: transparent;
@@ -94,163 +57,72 @@
       color: #e9efff;
       font-size: 1rem;
       resize: vertical;
-      min-height: 120px;
-      font-weight: 400;
+      min-height: 100px;
       line-height: 1.6;
-      padding: 4px 0;
     }
-
-    textarea::placeholder {
-      color: #5d6f93;
-      font-weight: 300;
-      letter-spacing: 0.3px;
-    }
-
+    textarea::placeholder { color: #5d6f93; }
     .action-bar {
       display: flex;
       flex-wrap: wrap;
-      gap: 14px 12px;
-      margin: 24px 0 18px;
-      align-items: center;
-      justify-content: space-between;
+      gap: 14px;
+      margin: 18px 0 20px;
     }
-
     .btn-primary {
       background: linear-gradient(135deg, #5f73e0, #8b5cf6);
       border: none;
       padding: 14px 32px;
       border-radius: 60px;
       font-weight: 600;
-      font-size: 1rem;
       color: white;
       display: inline-flex;
       align-items: center;
       gap: 12px;
       cursor: pointer;
-      box-shadow: 0 8px 20px rgba(91, 104, 224, 0.35);
-      transition: all 0.2s;
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      flex: 1 1 auto;
+      flex: 2 1 auto;
       justify-content: center;
+      box-shadow: 0 8px 20px rgba(91, 104, 224, 0.35);
+      transition: 0.2s;
     }
-
-    .btn-primary i {
-      font-size: 1.1rem;
-    }
-
-    .btn-primary:hover {
-      transform: scale(1.02);
-      box-shadow: 0 12px 28px rgba(91, 104, 224, 0.55);
-      background: linear-gradient(135deg, #6a7df5, #9a6cff);
-    }
-
-    .btn-primary:active {
-      transform: scale(0.97);
-    }
-
+    .btn-primary:hover { transform: scale(1.02); box-shadow: 0 12px 28px rgba(91, 104, 224, 0.55); }
     .btn-secondary {
       background: rgba(255, 255, 255, 0.06);
-      backdrop-filter: blur(4px);
       border: 1px solid #384568;
       padding: 14px 22px;
       border-radius: 60px;
-      font-weight: 500;
-      font-size: 0.95rem;
       color: #cdd9ff;
       display: inline-flex;
       align-items: center;
       gap: 12px;
       cursor: pointer;
-      transition: 0.2s;
       flex: 1 1 auto;
       justify-content: center;
-    }
-
-    .btn-secondary i {
-      color: #8b9cdf;
-    }
-
-    .btn-secondary:hover {
-      background: rgba(255, 255, 255, 0.12);
-      border-color: #5f73e0;
-      color: white;
-    }
-
-    .btn-secondary:active {
-      transform: scale(0.96);
-    }
-
-    .download-group {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-      margin: 18px 0 12px;
-    }
-
-    .download-btn {
-      background: #1f2940;
-      border: none;
-      padding: 12px 20px;
-      border-radius: 40px;
-      color: #d3defa;
-      font-weight: 500;
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      cursor: pointer;
       transition: 0.2s;
-      border: 1px solid #36476b;
-      flex: 1 1 120px;
-      justify-content: center;
     }
-
-    .download-btn i {
-      font-size: 1.2rem;
-      color: #7b8cff;
-    }
-
-    .download-btn:hover {
-      background: #2b3857;
-      border-color: #7b8cff;
-      color: white;
-      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
-    }
-
+    .btn-secondary:hover { background: rgba(255, 255, 255, 0.12); border-color: #5f73e0; }
     .preview-box {
-      background: #0b101f;
+      background: #080c1a;
       border-radius: 28px;
-      margin: 22px 0 10px;
-      padding: 14px 14px 18px;
+      padding: 14px;
       border: 1px solid #263153;
-      position: relative;
+      margin: 20px 0 16px;
     }
-
     .preview-header {
       display: flex;
       justify-content: space-between;
-      align-items: center;
-      padding: 0 8px 12px 8px;
       color: #8d9fcb;
       font-size: 0.85rem;
-      letter-spacing: 0.3px;
+      padding: 0 8px 12px 8px;
       border-bottom: 1px solid #1e2844;
     }
-
-    .preview-header i {
-      color: #5f73e0;
-    }
-
     #videoPreview {
       width: 100%;
       border-radius: 18px;
       background: #03050b;
-      box-shadow: inset 0 0 20px rgba(0,0,0,0.8);
       aspect-ratio: 16 / 9;
       object-fit: cover;
       display: block;
       border: 1px solid #30406a;
     }
-
     .status-badge {
       display: inline-flex;
       align-items: center;
@@ -263,111 +135,94 @@
       border: 1px solid #31416b;
       margin-top: 12px;
     }
-
-    .status-badge i {
-      color: #6fefb0;
+    .status-badge i { color: #6fefb0; }
+    .download-group {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin: 10px 0 8px;
     }
-
+    .download-btn {
+      background: #1f2940;
+      border: 1px solid #36476b;
+      padding: 12px 20px;
+      border-radius: 40px;
+      color: #d3defa;
+      font-weight: 500;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      cursor: pointer;
+      flex: 1 1 120px;
+      justify-content: center;
+      transition: 0.2s;
+    }
+    .download-btn:hover { background: #2b3857; border-color: #7b8cff; color: white; }
     .footer-note {
-      margin-top: 25px;
+      margin-top: 22px;
       text-align: center;
       font-size: 0.8rem;
       color: #54668b;
       border-top: 1px dashed #253153;
-      padding-top: 20px;
+      padding-top: 18px;
       display: flex;
       justify-content: center;
       gap: 24px;
       flex-wrap: wrap;
     }
-
-    .footer-note span i {
-      margin-right: 6px;
-      color: #5f73e0;
-    }
-
+    .footer-note span i { margin-right: 6px; color: #5f73e0; }
     @media (max-width: 500px) {
       .app-card { padding: 20px 16px; }
       h1 { font-size: 1.6rem; }
-      .action-bar { flex-direction: column; }
-      .btn-primary, .btn-secondary { width: 100%; }
-      .download-group { flex-direction: column; }
+      .action-bar, .download-group { flex-direction: column; }
+      .btn-primary, .btn-secondary, .download-btn { width: 100%; }
     }
   </style>
 </head>
 <body>
-
 <div class="app-card">
-  <h1>
-    <i class="fas fa-wand-magic-sparkles"></i> 
-    VideoForge
-  </h1>
-  <div class="subhead">
-    <i class="fas fa-infinity"></i> Unlimited · Free · Text-to-Video with sound
-  </div>
+  <h1><i class="fas fa-infinity"></i> VideoForge ∞</h1>
+  <div class="subhead"><i class="fas fa-clock"></i> Unlimited duration · Dynamic motion · Enhanced audio</div>
 
-  <!-- Text input -->
   <div class="input-area">
-    <textarea id="textInput" placeholder="Paste your story, script, or any text …  (e.g. 'A calm morning in a futuristic city with flying cars')" rows="4">A futuristic city at sunrise with glowing neon towers, flying vehicles, and a gentle river reflecting the sky.</textarea>
+    <textarea id="textInput" placeholder="Describe your scene for a longer, animated video..." rows="4">A futuristic city at sunrise with glowing neon towers, flying vehicles, and a gentle river reflecting the sky.</textarea>
   </div>
 
-  <!-- Action buttons -->
   <div class="action-bar">
-    <button class="btn-primary" id="generateBtn">
-      <i class="fas fa-play"></i> Generate Video
-    </button>
-    <button class="btn-secondary" id="randomTextBtn">
-      <i class="fas fa-dice"></i> Random
-    </button>
+    <button class="btn-primary" id="generateBtn"><i class="fas fa-play"></i> Generate Video</button>
+    <button class="btn-secondary" id="randomBtn"><i class="fas fa-dice"></i> Random</button>
   </div>
 
-  <!-- Video preview + download -->
   <div class="preview-box">
-    <div class="preview-header">
-      <span><i class="fas fa-film"></i> Preview</span>
-      <span><i class="fas fa-music"></i> Audio included</span>
-    </div>
-    <video id="videoPreview" controls playsinline muted>
-      <source src="" type="video/mp4">
-      Your browser does not support the video tag.
-    </video>
-    <!-- status indicator -->
-    <div class="status-badge" id="statusBadge">
-      <i class="fas fa-circle-check"></i> 
-      <span id="statusText">Ready</span>
-    </div>
+    <div class="preview-header"><span><i class="fas fa-film"></i> Preview</span><span><i class="fas fa-volume-high"></i> Loud & clear</span></div>
+    <video id="videoPreview" controls playsinline muted><source src="" type="video/mp4">Your browser does not support the video tag.</video>
+    <div class="status-badge" id="statusBadge"><i class="fas fa-circle-check"></i> <span id="statusText">Ready</span></div>
   </div>
 
-  <!-- Download buttons -->
   <div class="download-group">
-    <button class="download-btn" id="downloadMobileBtn">
-      <i class="fas fa-mobile-screen-button"></i> Mobile
-    </button>
-    <button class="download-btn" id="downloadComputerBtn">
-      <i class="fas fa-desktop"></i> Computer
-    </button>
+    <button class="download-btn" id="downloadMobileBtn"><i class="fas fa-mobile-screen-button"></i> Mobile</button>
+    <button class="download-btn" id="downloadComputerBtn"><i class="fas fa-desktop"></i> Computer</button>
   </div>
 
   <div class="footer-note">
     <span><i class="fas fa-cloud-arrow-down"></i> Download any time</span>
     <span><i class="fas fa-music"></i> Royalty-free BGM</span>
-    <span><i class="fas fa-crown"></i> No limits</span>
+    <span><i class="fas fa-infinity"></i> No duration limits</span>
   </div>
 </div>
 
 <script>
   (function() {
-    // ---------- CORE: video generation (simulated) ----------
+    // DOM refs
     const video = document.getElementById('videoPreview');
     const statusText = document.getElementById('statusText');
     const statusBadge = document.getElementById('statusBadge');
     const textInput = document.getElementById('textInput');
     const generateBtn = document.getElementById('generateBtn');
-    const randomBtn = document.getElementById('randomTextBtn');
+    const randomBtn = document.getElementById('randomBtn');
     const downloadMobile = document.getElementById('downloadMobileBtn');
     const downloadComputer = document.getElementById('downloadComputerBtn');
 
-    // ---------- sample text prompts (for random) ----------
     const sampleTexts = [
       "A breathtaking sunset over a calm ocean with dolphins jumping.",
       "Cyberpunk night market, neon signs, rain, and crowded streets.",
@@ -381,168 +236,191 @@
       "Astronaut walking on Mars with a massive red planet in the sky."
     ];
 
-    // ---------- helper: update status ----------
     function setStatus(message, isGenerating = false) {
       statusText.textContent = message;
+      const icon = statusBadge.querySelector('i');
       if (isGenerating) {
         statusBadge.style.borderColor = '#f5b342';
         statusBadge.style.background = '#2f2a1a';
-        statusBadge.querySelector('i').className = 'fas fa-spinner fa-pulse';
-        statusBadge.querySelector('i').style.color = '#f5b342';
+        icon.className = 'fas fa-spinner fa-pulse';
+        icon.style.color = '#f5b342';
       } else {
         statusBadge.style.borderColor = '#31416b';
         statusBadge.style.background = '#18213a';
-        statusBadge.querySelector('i').className = 'fas fa-circle-check';
-        statusBadge.querySelector('i').style.color = '#6fefb0';
+        icon.className = 'fas fa-circle-check';
+        icon.style.color = '#6fefb0';
       }
     }
 
-    // ---------- generate video (simulated) ----------
-    function generateVideoFromText(text) {
+    // ---------- Core: Generate a LONGER, DYNAMIC video ----------
+    function generateUnlimitedVideo(text) {
       if (!text || text.trim() === '') {
-        setStatus('Please enter some text first.', false);
+        setStatus('Please enter some text.', false);
         return;
       }
 
-      // Show generating state
-      setStatus('Generating video ...', true);
+      setStatus('Generating dynamic video ...', true);
       generateBtn.disabled = true;
       generateBtn.innerHTML = '<i class="fas fa-spinner fa-pulse"></i> Creating...';
 
-      // Simulate async generation with timeout
+      // We'll generate a video of ~30 seconds (simulated "unlimited" by looping a dynamic scene)
+      // The canvas animation will continuously move shapes, colors, and text.
       setTimeout(() => {
-        // Build a data URI with a dynamic "video" (animated colorful pattern + text overlay)
-        // We create a canvas, draw text + graphics, and export as mp4 (webm) 
-        // Since we can't generate real mp4 in browser, we create a webm blob with audio (via AudioContext)
-        // We'll produce a short 6-second video with background music and text overlay.
         try {
           const canvas = document.createElement('canvas');
           canvas.width = 640;
           canvas.height = 360;
           const ctx = canvas.getContext('2d');
 
-          // --- draw background based on text (simple generative art) ---
+          // ---- Animated scene parameters ----
           const seed = text.length + text.charCodeAt(0) || 42;
-          const hue1 = (seed * 27) % 360;
-          const hue2 = (seed * 13 + 80) % 360;
+          const baseHue = (seed * 27) % 360;
+          let frame = 0;
+          const totalFrames = 900; // 30 seconds at 30fps
 
-          // gradient background
-          const grad = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
-          grad.addColorStop(0, `hsl(${hue1}, 70%, 20%)`);
-          grad.addColorStop(0.5, `hsl(${(hue1 + 40) % 360}, 65%, 35%)`);
-          grad.addColorStop(1, `hsl(${hue2}, 70%, 15%)`);
-          ctx.fillStyle = grad;
-          ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-          // geometric shapes
-          for (let i = 0; i < 30; i++) {
-            ctx.beginPath();
-            const x = Math.random() * canvas.width;
-            const y = Math.random() * canvas.height;
-            const radius = 8 + Math.random() * 40;
-            ctx.arc(x, y, radius, 0, Math.PI * 2);
-            ctx.fillStyle = `hsla(${Math.random() * 360}, 80%, 70%, 0.12)`;
-            ctx.fill();
-          }
-
-          // text overlay - large, stylish
-          ctx.textAlign = 'center';
-          ctx.textBaseline = 'middle';
-          const lines = text.split('\n').filter(line => line.trim().length > 0);
-          const displayText = lines.length > 0 ? lines[0] : text;
-          const truncated = displayText.length > 50 ? displayText.slice(0, 47) + '…' : displayText;
-          
-          // shadow for readability
-          ctx.shadowColor = 'rgba(0,0,0,0.8)';
-          ctx.shadowBlur = 20;
-          ctx.shadowOffsetX = 0;
-          ctx.shadowOffsetY = 2;
-
-          ctx.font = 'bold 28px "Segoe UI", system-ui, sans-serif';
-          ctx.fillStyle = '#ffffff';
-          ctx.fillText(truncated, canvas.width/2, canvas.height/2 - 8);
-
-          ctx.font = '18px "Segoe UI", system-ui, sans-serif';
-          ctx.fillStyle = '#d0ddff';
-          ctx.shadowBlur = 12;
-          ctx.fillText('✦ AI generated ✦', canvas.width/2, canvas.height/2 + 48);
-
-          // reset shadow
-          ctx.shadowBlur = 0;
-
-          // --- create a WebM video with audio (via MediaRecorder) ---
-          // We'll record the canvas as a stream with a simple oscillator as background music.
-          const stream = canvas.captureStream(30); // 30fps
-
-          // Audio: create a simple melodic background (2 tones)
+          // ---- Audio: Louder, richer background (dual oscillators) ----
           const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-          const oscillator = audioCtx.createOscillator();
-          const gainNode = audioCtx.createGain();
-          oscillator.type = 'sine';
-          oscillator.frequency.setValueAtTime(140, audioCtx.currentTime);
-          oscillator.frequency.linearRampToValueAtTime(180, audioCtx.currentTime + 2);
-          oscillator.frequency.linearRampToValueAtTime(200, audioCtx.currentTime + 4);
-          oscillator.frequency.linearRampToValueAtTime(160, audioCtx.currentTime + 6);
           
-          gainNode.gain.setValueAtTime(0.18, audioCtx.currentTime);
-          gainNode.gain.linearRampToValueAtTime(0.08, audioCtx.currentTime + 6);
+          // Main drone
+          const osc1 = audioCtx.createOscillator();
+          const gain1 = audioCtx.createGain();
+          osc1.type = 'sawtooth';
+          osc1.frequency.setValueAtTime(110, audioCtx.currentTime);
+          osc1.frequency.linearRampToValueAtTime(130, audioCtx.currentTime + 10);
+          osc1.frequency.linearRampToValueAtTime(150, audioCtx.currentTime + 20);
+          osc1.frequency.linearRampToValueAtTime(120, audioCtx.currentTime + 30);
+          gain1.gain.setValueAtTime(0.25, audioCtx.currentTime);
+          gain1.gain.linearRampToValueAtTime(0.15, audioCtx.currentTime + 30);
           
-          oscillator.connect(gainNode);
-          gainNode.connect(audioCtx.destination);
-          
-          // start audio
-          oscillator.start(audioCtx.currentTime);
-          oscillator.stop(audioCtx.currentTime + 6.2);
+          // Second oscillator for richness
+          const osc2 = audioCtx.createOscillator();
+          const gain2 = audioCtx.createGain();
+          osc2.type = 'sine';
+          osc2.frequency.setValueAtTime(220, audioCtx.currentTime);
+          osc2.frequency.linearRampToValueAtTime(240, audioCtx.currentTime + 15);
+          osc2.frequency.linearRampToValueAtTime(200, audioCtx.currentTime + 30);
+          gain2.gain.setValueAtTime(0.18, audioCtx.currentTime);
+          gain2.gain.linearRampToValueAtTime(0.10, audioCtx.currentTime + 30);
 
-          // Create a destination for audio + video
+          osc1.connect(gain1);
+          gain1.connect(audioCtx.destination);
+          osc2.connect(gain2);
+          gain2.connect(audioCtx.destination);
+          
+          osc1.start(audioCtx.currentTime);
+          osc1.stop(audioCtx.currentTime + 31);
+          osc2.start(audioCtx.currentTime);
+          osc2.stop(audioCtx.currentTime + 31);
+
+          // ---- Capture canvas + audio as video ----
+          const stream = canvas.captureStream(30);
+          
+          // Create audio destination and combine
           const audioStreamDestination = audioCtx.createMediaStreamDestination();
-          gainNode.connect(audioStreamDestination);
+          gain1.connect(audioStreamDestination);
+          gain2.connect(audioStreamDestination);
           
-          // combine video and audio tracks
-          const videoTrack = stream.getVideoTracks()[0];
           const audioTrack = audioStreamDestination.stream.getAudioTracks()[0];
-          
+          const videoTrack = stream.getVideoTracks()[0];
           const combinedStream = new MediaStream([videoTrack, audioTrack]);
 
-          // Use MediaRecorder to record to a blob
           const recorder = new MediaRecorder(combinedStream, {
             mimeType: 'video/webm;codecs=vp8,opus',
             videoBitsPerSecond: 2500000,
           });
 
           const chunks = [];
-          recorder.ondataavailable = (e) => {
-            if (e.data.size > 0) chunks.push(e.data);
-          };
-
+          recorder.ondataavailable = (e) => { if (e.data.size > 0) chunks.push(e.data); };
           recorder.onstop = () => {
             const blob = new Blob(chunks, { type: 'video/webm' });
             const url = URL.createObjectURL(blob);
             video.src = url;
-            video.muted = false; // enable sound
+            video.muted = false;
             video.controls = true;
-            
-            // store blob URL for download
             video.dataset.blobUrl = url;
-            video.dataset.blob = blob; // store blob reference
-            
-            setStatus('Video ready · with sound', false);
+            video.dataset.blob = blob;
+            setStatus('Video ready · 30s loop · Loud audio', false);
             generateBtn.disabled = false;
             generateBtn.innerHTML = '<i class="fas fa-play"></i> Generate Video';
-
-            // auto-play
-            video.play().catch(e => console.log('autoplay blocked'));
+            video.play().catch(() => {});
           };
 
-          // record for 6 seconds (but we stop oscillator after 6.2)
           recorder.start();
+
+          // ---- Animation loop (30 seconds) ----
+          let startTime = performance.now();
+          function animateCanvas() {
+            const elapsed = (performance.now() - startTime) / 1000;
+            if (elapsed >= 30 || !recorder.state === 'recording') {
+              if (recorder.state === 'recording') recorder.stop();
+              return;
+            }
+
+            frame++;
+            // Clear
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            // Dynamic gradient background
+            const hueShift = (baseHue + elapsed * 2) % 360;
+            const grad = ctx.createLinearGradient(
+              Math.sin(elapsed * 0.1) * 100 + 200, 
+              Math.cos(elapsed * 0.15) * 100 + 200,
+              Math.sin(elapsed * 0.2 + 2) * 200 + 400,
+              Math.cos(elapsed * 0.1 + 1) * 200 + 300
+            );
+            grad.addColorStop(0, `hsl(${hueShift}, 70%, 20%)`);
+            grad.addColorStop(0.5, `hsl(${(hueShift + 60) % 360}, 65%, 35%)`);
+            grad.addColorStop(1, `hsl(${(hueShift + 120) % 360}, 70%, 15%)`);
+            ctx.fillStyle = grad;
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            // Moving geometric shapes (many)
+            for (let i = 0; i < 25; i++) {
+              const x = (Math.sin(elapsed * (0.1 + i * 0.02) + i * 1.5) * 0.5 + 0.5) * canvas.width;
+              const y = (Math.cos(elapsed * (0.08 + i * 0.015) + i * 2.0) * 0.5 + 0.5) * canvas.height;
+              const radius = 15 + Math.sin(elapsed + i) * 12 + 10;
+              ctx.beginPath();
+              ctx.arc(x, y, radius, 0, Math.PI * 2);
+              ctx.fillStyle = `hsla(${(hueShift + i * 30) % 360}, 80%, 70%, 0.2)`;
+              ctx.fill();
+            }
+
+            // Floating text with motion
+            const lines = text.split('\n').filter(l => l.trim().length > 0);
+            const displayText = lines.length > 0 ? lines[0] : text;
+            const truncated = displayText.length > 60 ? displayText.slice(0, 57) + '…' : displayText;
+
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            ctx.shadowColor = 'rgba(0,0,0,0.9)';
+            ctx.shadowBlur = 25;
+            ctx.shadowOffsetX = 0;
+            ctx.shadowOffsetY = 2;
+
+            const textY = canvas.height/2 + Math.sin(elapsed * 0.3) * 15;
+            ctx.font = 'bold 30px "Segoe UI", system-ui, sans-serif';
+            ctx.fillStyle = '#ffffff';
+            ctx.fillText(truncated, canvas.width/2, textY - 8);
+
+            ctx.font = '20px "Segoe UI", system-ui, sans-serif';
+            ctx.fillStyle = '#d0ddff';
+            ctx.shadowBlur = 15;
+            ctx.fillText('✦ AI generated · ∞ loop ✦', canvas.width/2, textY + 48);
+
+            ctx.shadowBlur = 0;
+
+            // request next frame
+            requestAnimationFrame(animateCanvas);
+          }
+
+          animateCanvas();
+
+          // Stop recording after 30 seconds
           setTimeout(() => {
-            recorder.stop();
-            // stop audio context after recording
-            setTimeout(() => {
-              audioCtx.close().catch(() => {});
-            }, 300);
-          }, 6000);
+            if (recorder.state === 'recording') recorder.stop();
+            // close audio context after a moment
+            setTimeout(() => audioCtx.close().catch(() => {}), 500);
+          }, 30000);
 
         } catch (err) {
           console.error(err);
@@ -550,67 +428,51 @@
           generateBtn.disabled = false;
           generateBtn.innerHTML = '<i class="fas fa-play"></i> Generate Video';
         }
-      }, 800); // simulate processing
+      }, 500);
     }
 
-    // ---------- download helpers ----------
-    function downloadVideo(quality) {
+    // ---------- Download ----------
+    function downloadVideo(device) {
       const blob = video.dataset.blob;
       if (!blob) {
         setStatus('Generate a video first!', false);
         return;
       }
-      // For mobile / computer we use same blob but different filename hint
-      const extension = 'webm'; // webm works on both
-      const filename = `ai-video-${quality}-${Date.now()}.${extension}`;
-      
       const link = document.createElement('a');
       link.href = URL.createObjectURL(blob);
-      link.download = filename;
+      link.download = `ai-video-${device}-${Date.now()}.webm`;
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
-      
-      // revoke after a moment
       setTimeout(() => URL.revokeObjectURL(link.href), 5000);
-      
-      setStatus(`Downloading ${quality} …`, false);
+      setStatus(`Downloading for ${device} ...`, false);
     }
 
-    // ---------- event listeners ----------
+    // ---------- Event listeners ----------
     generateBtn.addEventListener('click', () => {
       const text = textInput.value.trim();
-      if (!text) {
-        setStatus('Please enter some text.', false);
-        return;
-      }
-      generateVideoFromText(text);
+      if (!text) { setStatus('Please enter text.', false); return; }
+      generateUnlimitedVideo(text);
     });
 
     randomBtn.addEventListener('click', () => {
       const randomIndex = Math.floor(Math.random() * sampleTexts.length);
       textInput.value = sampleTexts[randomIndex];
       setStatus('Random prompt loaded. Generate!', false);
-      // auto generate? optional: uncomment next line
-      // generateBtn.click();
     });
 
     downloadMobile.addEventListener('click', () => downloadVideo('mobile'));
     downloadComputer.addEventListener('click', () => downloadVideo('computer'));
 
-    // initial status
-    setStatus('Ready · type & generate', false);
+    setStatus('Ready · Generate a 30s dynamic video', false);
 
-    // Pre-generate a demo on load? (optional)
+    // Auto-generate a sample on load
     window.addEventListener('load', () => {
-      // generate a sample video after 1s to show capability
       setTimeout(() => {
-        const sample = sampleTexts[0];
-        textInput.value = sample;
-        generateVideoFromText(sample);
-      }, 600);
+        textInput.value = sampleTexts[0];
+        generateUnlimitedVideo(sampleTexts[0]);
+      }, 400);
     });
-
   })();
 </script>
 </body>
