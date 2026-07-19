@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
-  <title>∞ AI Video Forge · Unlimited Duration</title>
+  <title>AI Video Studio · Pro Edition</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', system-ui, sans-serif; }
     body {
-      background: #0a0e1a;
+      background: #080c1a;
       min-height: 100vh;
       display: flex;
       justify-content: center;
@@ -16,14 +16,14 @@
       padding: 20px;
     }
     .app-card {
-      max-width: 800px;
+      max-width: 820px;
       width: 100%;
-      background: rgba(18, 26, 45, 0.9);
-      backdrop-filter: blur(10px);
+      background: rgba(14, 22, 42, 0.95);
+      backdrop-filter: blur(12px);
       border-radius: 48px;
       padding: 30px 28px;
-      border: 1px solid #2a3a5a;
-      box-shadow: 0 30px 60px rgba(0,0,0,0.8);
+      border: 1px solid #2e4068;
+      box-shadow: 0 30px 60px rgba(0,0,0,0.9);
     }
     h1 {
       font-size: 2rem;
@@ -31,22 +31,25 @@
       display: flex;
       align-items: center;
       gap: 12px;
-      margin-bottom: 6px;
+      margin-bottom: 4px;
     }
-    h1 i { background: linear-gradient(135deg, #7b8cff, #b47aff); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    h1 i { background: linear-gradient(135deg, #7b8cff, #f47aff); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
     .subhead {
       color: #9aa7c9;
-      margin-bottom: 24px;
+      margin-bottom: 20px;
       padding-left: 14px;
-      border-left: 3px solid #5f73e0;
-      font-size: 0.95rem;
+      border-left: 3px solid #7b8cff;
+      font-size: 0.9rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
     }
     .input-area {
       background: #0f162b;
       border-radius: 28px;
       padding: 16px 20px;
       border: 1px solid #2e3a5a;
-      margin-bottom: 20px;
+      margin-bottom: 16px;
     }
     .input-area:focus-within { border-color: #7b8cff; box-shadow: 0 0 0 4px rgba(123, 140, 255, 0.15); }
     textarea {
@@ -57,20 +60,50 @@
       color: #e9efff;
       font-size: 1rem;
       resize: vertical;
-      min-height: 100px;
+      min-height: 90px;
       line-height: 1.6;
     }
     textarea::placeholder { color: #5d6f93; }
+    .control-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin: 16px 0 18px;
+    }
+    .control-group {
+      background: #111a30;
+      border-radius: 20px;
+      padding: 12px 16px;
+      border: 1px solid #263153;
+    }
+    .control-group label {
+      display: block;
+      font-size: 0.75rem;
+      color: #8d9fcb;
+      margin-bottom: 6px;
+      letter-spacing: 0.5px;
+    }
+    .control-group select, .control-group input {
+      width: 100%;
+      background: #0b101f;
+      border: 1px solid #2e3a5a;
+      border-radius: 40px;
+      padding: 10px 14px;
+      color: #e9efff;
+      font-size: 0.9rem;
+      outline: none;
+    }
+    .control-group select option { background: #111a30; }
     .action-bar {
       display: flex;
       flex-wrap: wrap;
-      gap: 14px;
-      margin: 18px 0 20px;
+      gap: 12px;
+      margin: 6px 0 18px;
     }
     .btn-primary {
       background: linear-gradient(135deg, #5f73e0, #8b5cf6);
       border: none;
-      padding: 14px 32px;
+      padding: 16px 28px;
       border-radius: 60px;
       font-weight: 600;
       color: white;
@@ -87,7 +120,7 @@
     .btn-secondary {
       background: rgba(255, 255, 255, 0.06);
       border: 1px solid #384568;
-      padding: 14px 22px;
+      padding: 16px 22px;
       border-radius: 60px;
       color: #cdd9ff;
       display: inline-flex;
@@ -104,7 +137,7 @@
       border-radius: 28px;
       padding: 14px;
       border: 1px solid #263153;
-      margin: 20px 0 16px;
+      margin: 14px 0 16px;
     }
     .preview-header {
       display: flex;
@@ -140,7 +173,7 @@
       display: flex;
       gap: 12px;
       flex-wrap: wrap;
-      margin: 10px 0 8px;
+      margin: 8px 0 6px;
     }
     .download-btn {
       background: #1f2940;
@@ -159,21 +192,21 @@
     }
     .download-btn:hover { background: #2b3857; border-color: #7b8cff; color: white; }
     .footer-note {
-      margin-top: 22px;
+      margin-top: 20px;
       text-align: center;
-      font-size: 0.8rem;
-      color: #54668b;
-      border-top: 1px dashed #253153;
-      padding-top: 18px;
+      font-size: 0.75rem;
+      color: #4a5d84;
+      border-top: 1px dashed #1f2d4a;
+      padding-top: 16px;
       display: flex;
       justify-content: center;
-      gap: 24px;
+      gap: 20px;
       flex-wrap: wrap;
     }
     .footer-note span i { margin-right: 6px; color: #5f73e0; }
-    @media (max-width: 500px) {
+    @media (max-width: 550px) {
       .app-card { padding: 20px 16px; }
-      h1 { font-size: 1.6rem; }
+      .control-grid { grid-template-columns: 1fr; }
       .action-bar, .download-group { flex-direction: column; }
       .btn-primary, .btn-secondary, .download-btn { width: 100%; }
     }
@@ -181,20 +214,40 @@
 </head>
 <body>
 <div class="app-card">
-  <h1><i class="fas fa-infinity"></i> VideoForge ∞</h1>
-  <div class="subhead"><i class="fas fa-clock"></i> Unlimited duration · Dynamic motion · Enhanced audio</div>
+  <h1><i class="fas fa-crown"></i> AI Studio Pro</h1>
+  <div class="subhead">
+    <span><i class="fas fa-infinity"></i> Unlimited · Smart duration</span>
+    <span><i class="fas fa-music"></i> Style: <span id="selectedMusicLabel">Ambient</span></span>
+  </div>
 
   <div class="input-area">
-    <textarea id="textInput" placeholder="Describe your scene for a longer, animated video..." rows="4">A futuristic city at sunrise with glowing neon towers, flying vehicles, and a gentle river reflecting the sky.</textarea>
+    <textarea id="textInput" placeholder="Describe your video scene, product, or music video idea..." rows="4">A futuristic city at sunrise with glowing neon towers, flying vehicles, and a gentle river reflecting the sky.</textarea>
+  </div>
+
+  <div class="control-grid">
+    <div class="control-group">
+      <label><i class="fas fa-clock"></i> Duration (seconds)</label>
+      <input type="number" id="durationInput" value="45" min="10" max="300" step="5">
+    </div>
+    <div class="control-group">
+      <label><i class="fas fa-music"></i> Music Style</label>
+      <select id="musicStyleSelect">
+        <option value="ambient">🌿 Ambient · Calm</option>
+        <option value="hiphop">🎧 Hip Hop · Urban</option>
+        <option value="instrumental">🎹 Instrumental · Epic</option>
+        <option value="electronic">⚡ Electronic · Energetic</option>
+        <option value="cinematic">🎬 Cinematic · Dramatic</option>
+      </select>
+    </div>
   </div>
 
   <div class="action-bar">
-    <button class="btn-primary" id="generateBtn"><i class="fas fa-play"></i> Generate Video</button>
-    <button class="btn-secondary" id="randomBtn"><i class="fas fa-dice"></i> Random</button>
+    <button class="btn-primary" id="generateBtn"><i class="fas fa-wand-magic-sparkles"></i> Generate Video</button>
+    <button class="btn-secondary" id="randomBtn"><i class="fas fa-dice"></i> Random Prompt</button>
   </div>
 
   <div class="preview-box">
-    <div class="preview-header"><span><i class="fas fa-film"></i> Preview</span><span><i class="fas fa-volume-high"></i> Loud & clear</span></div>
+    <div class="preview-header"><span><i class="fas fa-film"></i> Preview</span><span><i class="fas fa-volume-high"></i> Dynamic audio</span></div>
     <video id="videoPreview" controls playsinline muted><source src="" type="video/mp4">Your browser does not support the video tag.</video>
     <div class="status-badge" id="statusBadge"><i class="fas fa-circle-check"></i> <span id="statusText">Ready</span></div>
   </div>
@@ -206,8 +259,8 @@
 
   <div class="footer-note">
     <span><i class="fas fa-cloud-arrow-down"></i> Download any time</span>
-    <span><i class="fas fa-music"></i> Royalty-free BGM</span>
-    <span><i class="fas fa-infinity"></i> No duration limits</span>
+    <span><i class="fas fa-infinity"></i> No limits · Pro features</span>
+    <span><i class="fas fa-robot"></i> AI generated</span>
   </div>
 </div>
 
@@ -218,10 +271,20 @@
     const statusText = document.getElementById('statusText');
     const statusBadge = document.getElementById('statusBadge');
     const textInput = document.getElementById('textInput');
+    const durationInput = document.getElementById('durationInput');
+    const musicStyleSelect = document.getElementById('musicStyleSelect');
+    const selectedMusicLabel = document.getElementById('selectedMusicLabel');
     const generateBtn = document.getElementById('generateBtn');
     const randomBtn = document.getElementById('randomBtn');
     const downloadMobile = document.getElementById('downloadMobileBtn');
     const downloadComputer = document.getElementById('downloadComputerBtn');
+
+    // Update label on music change
+    musicStyleSelect.addEventListener('change', () => {
+      const text = musicStyleSelect.options[musicStyleSelect.selectedIndex].text;
+      selectedMusicLabel.textContent = text.split('·')[1]?.trim() || text;
+    });
+    selectedMusicLabel.textContent = musicStyleSelect.options[0].text.split('·')[1]?.trim() || 'Ambient';
 
     const sampleTexts = [
       "A breathtaking sunset over a calm ocean with dolphins jumping.",
@@ -233,7 +296,11 @@
       "Underwater coral reef with colorful fish and a sea turtle.",
       "A quiet snowy village at night, warm lights in the windows.",
       "A high-speed train zooming through a hyperloop tunnel.",
-      "Astronaut walking on Mars with a massive red planet in the sky."
+      "Astronaut walking on Mars with a massive red planet in the sky.",
+      "Promote this amazing wireless earbuds with noise cancellation and deep bass.",
+      "Unboxing the latest 4K action camera with waterproof and stabilization.",
+      "Music video: neon lights, dancers, and a futuristic city vibe.",
+      "Relaxing lo-fi beats with a rainy window and cozy room aesthetic."
     ];
 
     function setStatus(message, isGenerating = false) {
@@ -252,19 +319,24 @@
       }
     }
 
-    // ---------- Core: Generate a LONGER, DYNAMIC video ----------
-    function generateUnlimitedVideo(text) {
+    // ---------- Generate video with selected duration and music ----------
+    function generateProVideo(text) {
       if (!text || text.trim() === '') {
         setStatus('Please enter some text.', false);
         return;
       }
 
-      setStatus('Generating dynamic video ...', true);
+      let duration = parseInt(durationInput.value) || 45;
+      if (duration < 5) duration = 5;
+      if (duration > 300) duration = 300;
+      durationInput.value = duration;
+
+      const musicStyle = musicStyleSelect.value;
+
+      setStatus(`Generating ${duration}s video with ${musicStyle}...`, true);
       generateBtn.disabled = true;
       generateBtn.innerHTML = '<i class="fas fa-spinner fa-pulse"></i> Creating...';
 
-      // We'll generate a video of ~30 seconds (simulated "unlimited" by looping a dynamic scene)
-      // The canvas animation will continuously move shapes, colors, and text.
       setTimeout(() => {
         try {
           const canvas = document.createElement('canvas');
@@ -272,54 +344,50 @@
           canvas.height = 360;
           const ctx = canvas.getContext('2d');
 
-          // ---- Animated scene parameters ----
-          const seed = text.length + text.charCodeAt(0) || 42;
+          // ---- Scene parameters based on text ----
+          const seed = text.length + text.charCodeAt(0) + text.charCodeAt(text.length-1) || 42;
           const baseHue = (seed * 27) % 360;
-          let frame = 0;
-          const totalFrames = 900; // 30 seconds at 30fps
+          const totalFrames = Math.floor(duration * 30); // 30fps
 
-          // ---- Audio: Louder, richer background (dual oscillators) ----
+          // ---- Music: Dynamic based on style ----
           const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-          
-          // Main drone
-          const osc1 = audioCtx.createOscillator();
-          const gain1 = audioCtx.createGain();
-          osc1.type = 'sawtooth';
-          osc1.frequency.setValueAtTime(110, audioCtx.currentTime);
-          osc1.frequency.linearRampToValueAtTime(130, audioCtx.currentTime + 10);
-          osc1.frequency.linearRampToValueAtTime(150, audioCtx.currentTime + 20);
-          osc1.frequency.linearRampToValueAtTime(120, audioCtx.currentTime + 30);
-          gain1.gain.setValueAtTime(0.25, audioCtx.currentTime);
-          gain1.gain.linearRampToValueAtTime(0.15, audioCtx.currentTime + 30);
-          
-          // Second oscillator for richness
-          const osc2 = audioCtx.createOscillator();
-          const gain2 = audioCtx.createGain();
-          osc2.type = 'sine';
-          osc2.frequency.setValueAtTime(220, audioCtx.currentTime);
-          osc2.frequency.linearRampToValueAtTime(240, audioCtx.currentTime + 15);
-          osc2.frequency.linearRampToValueAtTime(200, audioCtx.currentTime + 30);
-          gain2.gain.setValueAtTime(0.18, audioCtx.currentTime);
-          gain2.gain.linearRampToValueAtTime(0.10, audioCtx.currentTime + 30);
+          const gainNode = audioCtx.createGain();
+          gainNode.gain.setValueAtTime(0.30, audioCtx.currentTime);
+          gainNode.gain.linearRampToValueAtTime(0.15, audioCtx.currentTime + duration);
+          gainNode.connect(audioCtx.destination);
 
-          osc1.connect(gain1);
-          gain1.connect(audioCtx.destination);
-          osc2.connect(gain2);
-          gain2.connect(audioCtx.destination);
-          
-          osc1.start(audioCtx.currentTime);
-          osc1.stop(audioCtx.currentTime + 31);
-          osc2.start(audioCtx.currentTime);
-          osc2.stop(audioCtx.currentTime + 31);
+          // Create oscillators based on style
+          const oscillators = [];
+          const styleConfigs = {
+            ambient: { types: ['sine', 'sine'], freqs: [130, 170], gains: [0.25, 0.15] },
+            hiphop: { types: ['square', 'sawtooth'], freqs: [80, 160], gains: [0.2, 0.18] },
+            instrumental: { types: ['sawtooth', 'triangle'], freqs: [110, 220], gains: [0.2, 0.15] },
+            electronic: { types: ['square', 'sine'], freqs: [100, 200], gains: [0.22, 0.16] },
+            cinematic: { types: ['sawtooth', 'sine'], freqs: [90, 180], gains: [0.25, 0.2] }
+          };
+          const config = styleConfigs[musicStyle] || styleConfigs.ambient;
 
-          // ---- Capture canvas + audio as video ----
+          for (let i = 0; i < config.types.length; i++) {
+            const osc = audioCtx.createOscillator();
+            const gain = audioCtx.createGain();
+            osc.type = config.types[i];
+            osc.frequency.setValueAtTime(config.freqs[i], audioCtx.currentTime);
+            // Add some movement
+            osc.frequency.linearRampToValueAtTime(config.freqs[i] * 1.2, audioCtx.currentTime + duration * 0.5);
+            osc.frequency.linearRampToValueAtTime(config.freqs[i] * 0.8, audioCtx.currentTime + duration);
+            gain.gain.setValueAtTime(config.gains[i], audioCtx.currentTime);
+            gain.gain.linearRampToValueAtTime(config.gains[i] * 0.3, audioCtx.currentTime + duration);
+            osc.connect(gain);
+            gain.connect(gainNode);
+            osc.start(audioCtx.currentTime);
+            osc.stop(audioCtx.currentTime + duration + 0.5);
+            oscillators.push(osc);
+          }
+
+          // ---- Capture ----
           const stream = canvas.captureStream(30);
-          
-          // Create audio destination and combine
           const audioStreamDestination = audioCtx.createMediaStreamDestination();
-          gain1.connect(audioStreamDestination);
-          gain2.connect(audioStreamDestination);
-          
+          gainNode.connect(audioStreamDestination);
           const audioTrack = audioStreamDestination.stream.getAudioTracks()[0];
           const videoTrack = stream.getVideoTracks()[0];
           const combinedStream = new MediaStream([videoTrack, audioTrack]);
@@ -339,94 +407,94 @@
             video.controls = true;
             video.dataset.blobUrl = url;
             video.dataset.blob = blob;
-            setStatus('Video ready · 30s loop · Loud audio', false);
+            setStatus(`Video ready · ${duration}s · ${musicStyle}`, false);
             generateBtn.disabled = false;
-            generateBtn.innerHTML = '<i class="fas fa-play"></i> Generate Video';
+            generateBtn.innerHTML = '<i class="fas fa-wand-magic-sparkles"></i> Generate Video';
             video.play().catch(() => {});
           };
 
           recorder.start();
 
-          // ---- Animation loop (30 seconds) ----
+          // ---- Animation loop ----
           let startTime = performance.now();
+          let frame = 0;
+
           function animateCanvas() {
             const elapsed = (performance.now() - startTime) / 1000;
-            if (elapsed >= 30 || !recorder.state === 'recording') {
+            if (elapsed >= duration || recorder.state !== 'recording') {
               if (recorder.state === 'recording') recorder.stop();
               return;
             }
-
             frame++;
-            // Clear
             ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-            // Dynamic gradient background
-            const hueShift = (baseHue + elapsed * 2) % 360;
-            const grad = ctx.createLinearGradient(
-              Math.sin(elapsed * 0.1) * 100 + 200, 
-              Math.cos(elapsed * 0.15) * 100 + 200,
-              Math.sin(elapsed * 0.2 + 2) * 200 + 400,
-              Math.cos(elapsed * 0.1 + 1) * 200 + 300
+            // Dynamic background based on text and time
+            const hueShift = (baseHue + elapsed * 1.5) % 360;
+            const grad = ctx.createRadialGradient(
+              canvas.width/2 + Math.sin(elapsed * 0.1) * 100,
+              canvas.height/2 + Math.cos(elapsed * 0.12) * 100,
+              50,
+              canvas.width/2 + Math.sin(elapsed * 0.15 + 2) * 80,
+              canvas.height/2 + Math.cos(elapsed * 0.1 + 1) * 80,
+              400
             );
-            grad.addColorStop(0, `hsl(${hueShift}, 70%, 20%)`);
-            grad.addColorStop(0.5, `hsl(${(hueShift + 60) % 360}, 65%, 35%)`);
-            grad.addColorStop(1, `hsl(${(hueShift + 120) % 360}, 70%, 15%)`);
+            grad.addColorStop(0, `hsl(${hueShift}, 75%, 30%)`);
+            grad.addColorStop(0.5, `hsl(${(hueShift + 50) % 360}, 70%, 20%)`);
+            grad.addColorStop(1, `hsl(${(hueShift + 100) % 360}, 80%, 10%)`);
             ctx.fillStyle = grad;
             ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-            // Moving geometric shapes (many)
-            for (let i = 0; i < 25; i++) {
-              const x = (Math.sin(elapsed * (0.1 + i * 0.02) + i * 1.5) * 0.5 + 0.5) * canvas.width;
-              const y = (Math.cos(elapsed * (0.08 + i * 0.015) + i * 2.0) * 0.5 + 0.5) * canvas.height;
-              const radius = 15 + Math.sin(elapsed + i) * 12 + 10;
+            // Dynamic shapes (more movement)
+            for (let i = 0; i < 30; i++) {
+              const x = (Math.sin(elapsed * (0.08 + i * 0.015) + i * 1.2) * 0.5 + 0.5) * canvas.width;
+              const y = (Math.cos(elapsed * (0.07 + i * 0.012) + i * 1.8) * 0.5 + 0.5) * canvas.height;
+              const radius = 12 + Math.sin(elapsed * 0.5 + i) * 10 + 8;
               ctx.beginPath();
               ctx.arc(x, y, radius, 0, Math.PI * 2);
-              ctx.fillStyle = `hsla(${(hueShift + i * 30) % 360}, 80%, 70%, 0.2)`;
+              ctx.fillStyle = `hsla(${(hueShift + i * 25 + elapsed * 20) % 360}, 85%, 70%, 0.15)`;
               ctx.fill();
             }
 
-            // Floating text with motion
+            // Text rendering with dynamic style
             const lines = text.split('\n').filter(l => l.trim().length > 0);
-            const displayText = lines.length > 0 ? lines[0] : text;
-            const truncated = displayText.length > 60 ? displayText.slice(0, 57) + '…' : displayText;
+            let displayText = lines.length > 0 ? lines[0] : text;
+            if (displayText.length > 70) displayText = displayText.slice(0, 67) + '…';
 
             ctx.textAlign = 'center';
             ctx.textBaseline = 'middle';
             ctx.shadowColor = 'rgba(0,0,0,0.9)';
-            ctx.shadowBlur = 25;
+            ctx.shadowBlur = 30;
             ctx.shadowOffsetX = 0;
             ctx.shadowOffsetY = 2;
 
-            const textY = canvas.height/2 + Math.sin(elapsed * 0.3) * 15;
-            ctx.font = 'bold 30px "Segoe UI", system-ui, sans-serif';
+            const textY = canvas.height/2 + Math.sin(elapsed * 0.2) * 20;
+            ctx.font = 'bold 28px "Segoe UI", system-ui, sans-serif';
             ctx.fillStyle = '#ffffff';
-            ctx.fillText(truncated, canvas.width/2, textY - 8);
+            ctx.fillText(displayText, canvas.width/2, textY - 10);
 
-            ctx.font = '20px "Segoe UI", system-ui, sans-serif';
+            ctx.font = '18px "Segoe UI", system-ui, sans-serif';
             ctx.fillStyle = '#d0ddff';
             ctx.shadowBlur = 15;
-            ctx.fillText('✦ AI generated · ∞ loop ✦', canvas.width/2, textY + 48);
+            const styleLabel = musicStyle.charAt(0).toUpperCase() + musicStyle.slice(1);
+            ctx.fillText(`✦ ${styleLabel} · ${duration}s ✦`, canvas.width/2, textY + 50);
 
             ctx.shadowBlur = 0;
-
-            // request next frame
             requestAnimationFrame(animateCanvas);
           }
 
           animateCanvas();
 
-          // Stop recording after 30 seconds
+          // Stop recording after duration
           setTimeout(() => {
             if (recorder.state === 'recording') recorder.stop();
-            // close audio context after a moment
-            setTimeout(() => audioCtx.close().catch(() => {}), 500);
-          }, 30000);
+            setTimeout(() => audioCtx.close().catch(() => {}), 300);
+          }, duration * 1000 + 200);
 
         } catch (err) {
           console.error(err);
           setStatus('Error generating video. Retry.', false);
           generateBtn.disabled = false;
-          generateBtn.innerHTML = '<i class="fas fa-play"></i> Generate Video';
+          generateBtn.innerHTML = '<i class="fas fa-wand-magic-sparkles"></i> Generate Video';
         }
       }, 500);
     }
@@ -452,7 +520,7 @@
     generateBtn.addEventListener('click', () => {
       const text = textInput.value.trim();
       if (!text) { setStatus('Please enter text.', false); return; }
-      generateUnlimitedVideo(text);
+      generateProVideo(text);
     });
 
     randomBtn.addEventListener('click', () => {
@@ -464,14 +532,14 @@
     downloadMobile.addEventListener('click', () => downloadVideo('mobile'));
     downloadComputer.addEventListener('click', () => downloadVideo('computer'));
 
-    setStatus('Ready · Generate a 30s dynamic video', false);
+    setStatus('Ready · Set duration & music style', false);
 
     // Auto-generate a sample on load
     window.addEventListener('load', () => {
       setTimeout(() => {
-        textInput.value = sampleTexts[0];
-        generateUnlimitedVideo(sampleTexts[0]);
-      }, 400);
+        textInput.value = sampleTexts[4]; // Ancient ruins
+        generateProVideo(sampleTexts[4]);
+      }, 500);
     });
   })();
 </script>
