@@ -3,24 +3,22 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
-  <title>AI Avatar Studio · Promo & Music Videos</title>
+  <title>AI Avatar Studio · Choose Your Presenter</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', system-ui, sans-serif; }
     body { background: #0a0e1a; min-height: 100vh; display: flex; justify-content: center; align-items: center; padding: 16px; }
-    .app-card { max-width: 820px; width: 100%; background: rgba(14, 22, 42, 0.95); backdrop-filter: blur(12px); border-radius: 40px; padding: 24px; border: 1px solid #2e4068; box-shadow: 0 20px 40px rgba(0,0,0,0.7); }
+    .app-card { max-width: 780px; width: 100%; background: rgba(14, 22, 42, 0.95); backdrop-filter: blur(12px); border-radius: 40px; padding: 24px; border: 1px solid #2e4068; box-shadow: 0 20px 40px rgba(0,0,0,0.7); }
     h1 { font-size: 1.8rem; color: #f0f4ff; display: flex; align-items: center; gap: 12px; margin-bottom: 2px; }
     h1 i { background: linear-gradient(135deg, #7b8cff, #f47aff); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
     .subhead { color: #9aa7c9; margin-bottom: 16px; padding-left: 14px; border-left: 3px solid #7b8cff; font-size: 0.85rem; }
     .input-area { background: #0f162b; border-radius: 24px; padding: 14px 18px; border: 1px solid #2e3a5a; margin-bottom: 14px; }
-    textarea { width: 100%; background: transparent; border: none; outline: none; color: #e9efff; font-size: 0.95rem; resize: vertical; min-height: 80px; line-height: 1.5; }
+    textarea { width: 100%; background: transparent; border: none; outline: none; color: #e9efff; font-size: 0.95rem; resize: vertical; min-height: 70px; line-height: 1.5; }
     textarea::placeholder { color: #5d6f93; }
     .control-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 12px 0 16px; }
     .control-group { background: #111a30; border-radius: 18px; padding: 10px 14px; border: 1px solid #263153; }
     .control-group label { display: block; font-size: 0.75rem; color: #8d9fcb; margin-bottom: 4px; }
-    .control-group input, .control-group select { width: 100%; background: #0b101f; border: 1px solid #2e3a5a; border-radius: 30px; padding: 8px 12px; color: #e9efff; font-size: 0.9rem; outline: none; }
-    .volume-control { display: flex; align-items: center; gap: 10px; background: #0b101f; border-radius: 30px; padding: 4px 12px 4px 16px; border: 1px solid #2e3a5a; }
-    .volume-control input[type="range"] { flex: 1; background: transparent; accent-color: #7b8cff; }
+    .control-group select, .control-group input { width: 100%; background: #0b101f; border: 1px solid #2e3a5a; border-radius: 30px; padding: 8px 12px; color: #e9efff; font-size: 0.9rem; outline: none; }
     .action-bar { display: flex; flex-wrap: wrap; gap: 10px; margin: 12px 0 16px; }
     .btn-primary { background: linear-gradient(135deg, #5f73e0, #8b5cf6); border: none; padding: 14px 24px; border-radius: 60px; font-weight: 600; color: white; display: inline-flex; align-items: center; gap: 10px; cursor: pointer; flex: 2 1 auto; justify-content: center; box-shadow: 0 6px 18px rgba(91, 104, 224, 0.3); transition: 0.2s; }
     .btn-primary:hover { transform: scale(1.02); }
@@ -35,44 +33,45 @@
     .download-btn { background: #1f2940; border: 1px solid #36476b; padding: 10px 16px; border-radius: 40px; color: #d3defa; font-weight: 500; display: inline-flex; align-items: center; gap: 8px; cursor: pointer; flex: 1 1 100px; justify-content: center; transition: 0.2s; }
     .download-btn:hover { background: #2b3857; border-color: #7b8cff; color: white; }
     .footer-note { margin-top: 16px; text-align: center; font-size: 0.7rem; color: #4a5d84; border-top: 1px dashed #1f2d4a; padding-top: 14px; display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; }
+    .avatar-preview { display: flex; align-items: center; gap: 12px; margin: 6px 0; }
+    .avatar-preview canvas { border-radius: 50%; border: 2px solid #4a5d84; background: #111a30; }
     @media (max-width: 600px) { .app-card { padding: 16px; } .control-grid { grid-template-columns: 1fr; } .action-bar, .download-group { flex-direction: column; } .btn-primary, .btn-secondary, .download-btn { width: 100%; } }
   </style>
 </head>
 <body>
 <div class="app-card">
-  <h1><i class="fas fa-robot"></i> Avatar Studio</h1>
-  <div class="subhead"><i class="fas fa-microphone"></i> AI presenter · Lip sync · Music · Customizable</div>
+  <h1><i class="fas fa-users"></i> Avatar Studio</h1>
+  <div class="subhead"><i class="fas fa-comment"></i> Choose a presenter · Text highlights as they speak</div>
 
   <div class="input-area">
-    <textarea id="textInput" placeholder="Paste your promotional text, script, or song lyrics..." rows="4">Earn Cashback Every Time You Shop with CashKaro! Looking for an easy way to save money while shopping online? CashKaro is one of India's leading cashback and rewards platforms.</textarea>
+    <textarea id="textInput" placeholder="Paste your script here. The avatar will speak it..." rows="4">Hello and welcome! Today we're exploring the future of artificial intelligence. It's an exciting time to be alive. Let's dive in.</textarea>
   </div>
 
   <div class="control-grid">
-    <div class="control-group"><label><i class="fas fa-clock"></i> Duration (sec)</label><input type="number" id="durationInput" value="15" min="5" max="90"></div>
-    <div class="control-group"><label><i class="fas fa-music"></i> Background Music</label>
-      <select id="musicStyleSelect"><option value="ambient">🌿 Ambient</option><option value="hiphop">🎧 Hip Hop</option><option value="instrumental">🎹 Instrumental</option><option value="electronic">⚡ Electronic</option><option value="cinematic">🎬 Cinematic</option></select>
+    <div class="control-group">
+      <label><i class="fas fa-user-tie"></i> Choose Avatar</label>
+      <select id="avatarSelect">
+        <option value="professional">🧑‍💼 Professional</option>
+        <option value="friendly">😊 Friendly</option>
+        <option value="tech">👩‍💻 Tech</option>
+        <option value="creative">🎨 Creative</option>
+      </select>
     </div>
-  </div>
-
-  <div class="input-area" style="margin-bottom: 12px; display: flex; flex-wrap: wrap; gap: 10px; align-items: center;">
-    <div style="flex:2 1 200px;"><label style="color:#8d9fcb; font-size:0.75rem;"><i class="fas fa-image"></i> Background URL (optional)</label>
-    <input type="text" id="mediaUrlInput" placeholder="Paste .mp4, .jpg, etc." value="" style="width:100%; background:transparent; border:none; outline:none; color:#e9efff; font-size:0.85rem; padding:4px 0;"></div>
-    <div class="volume-control" style="flex:1 1 140px;">
-      <i class="fas fa-volume-low" style="color:#8d9fcb;"></i>
-      <input type="range" id="volumeSlider" min="0" max="200" value="150" step="1">
-      <i class="fas fa-volume-high" style="color:#8d9fcb;"></i>
+    <div class="control-group">
+      <label><i class="fas fa-clock"></i> Duration (sec)</label>
+      <input type="number" id="durationInput" value="12" min="5" max="90">
     </div>
   </div>
 
   <div class="action-bar">
-    <button class="btn-primary" id="generateBtn"><i class="fas fa-wand-magic-sparkles"></i> Create Promo Video</button>
-    <button class="btn-secondary" id="randomBtn"><i class="fas fa-dice"></i> Random Text</button>
+    <button class="btn-primary" id="generateBtn"><i class="fas fa-wand-magic-sparkles"></i> Generate Video</button>
+    <button class="btn-secondary" id="randomBtn"><i class="fas fa-dice"></i> Random Script</button>
   </div>
 
   <div class="preview-box">
-    <div class="preview-header"><span><i class="fas fa-play"></i> Preview</span><span><i class="fas fa-volume-high"></i> Voice + Music</span></div>
+    <div class="preview-header"><span><i class="fas fa-play"></i> Preview</span><span><i class="fas fa-volume-high"></i> Voice</span></div>
     <video id="videoPreview" controls playsinline muted><source src="" type="video/mp4">Your browser does not support the video tag.</video>
-    <div class="status-badge" id="statusBadge"><i class="fas fa-circle-check"></i> <span id="statusText">Ready. Paste text & generate.</span></div>
+    <div class="status-badge" id="statusBadge"><i class="fas fa-circle-check"></i> <span id="statusText">Ready. Choose avatar & generate.</span></div>
   </div>
 
   <div class="download-group">
@@ -81,8 +80,8 @@
   </div>
 
   <div class="footer-note">
-    <span><i class="fas fa-robot"></i> AI Avatar</span>
-    <span><i class="fas fa-music"></i> Royalty-free BGM</span>
+    <span><i class="fas fa-robot"></i> AI Presenter</span>
+    <span><i class="fas fa-highlighter"></i> Text highlights</span>
     <span><i class="fas fa-infinity"></i> No limits</span>
   </div>
 </div>
@@ -94,126 +93,207 @@
     const statusText = document.getElementById('statusText');
     const statusBadge = document.getElementById('statusBadge');
     const textInput = document.getElementById('textInput');
-    const mediaUrlInput = document.getElementById('mediaUrlInput');
+    const avatarSelect = document.getElementById('avatarSelect');
     const durationInput = document.getElementById('durationInput');
-    const musicStyleSelect = document.getElementById('musicStyleSelect');
-    const volumeSlider = document.getElementById('volumeSlider');
     const generateBtn = document.getElementById('generateBtn');
     const randomBtn = document.getElementById('randomBtn');
     const downloadMobile = document.getElementById('downloadMobileBtn');
     const downloadComputer = document.getElementById('downloadComputerBtn');
 
-    const sampleTexts = [
-      "Earn Cashback Every Time You Shop with CashKaro! Looking for an easy way to save money while shopping online?",
-      "Best Wireless Earbuds with Noise Cancellation for immersive sound.",
-      "4K Action Camera Waterproof and Stabilization for your adventures.",
-      "Smart Fitness Tracker with Heart Rate Monitor to achieve your goals.",
-      "Memory Foam Pillow for Better Sleep and comfort.",
-      "Music Video: Neon Lights and City Vibes with a cool beat.",
-      "Relaxing Lo-Fi Beats with Rainy Window for study and chill."
+    const sampleScripts = [
+      "Hello and welcome! Today we're exploring the future of artificial intelligence. It's an exciting time to be alive.",
+      "Did you know that the average person spends over two hours on social media every day? That's a lot of time.",
+      "CashKaro is one of India's leading cashback platforms. You can earn cashback on every purchase you make.",
+      "This is a great product for anyone looking to save money and time. Try it today and see the difference.",
+      "Music has the power to change our mood, inspire us, and bring people together. Let's celebrate music."
     ];
 
-    function setStatus(message, isGenerating = false) {
-      statusText.textContent = message;
-      const icon = statusBadge.querySelector('i');
-      if (isGenerating) {
-        statusBadge.style.borderColor = '#f5b342';
-        statusBadge.style.background = '#2f2a1a';
-        icon.className = 'fas fa-spinner fa-pulse';
-        icon.style.color = '#f5b342';
-      } else {
-        statusBadge.style.borderColor = '#31416b';
-        statusBadge.style.background = '#18213a';
-        icon.className = 'fas fa-circle-check';
-        icon.style.color = '#6fefb0';
+    // ---------- Avatar drawing functions ----------
+    function drawProfessional(ctx, cx, cy, time, mouthOpen) {
+      // Dark suit, glasses
+      ctx.fillStyle = '#2a2a3a';
+      ctx.fillRect(cx-45, cy+50, 90, 70);
+      ctx.fillStyle = '#1a1a2a';
+      ctx.fillRect(cx-40, cy+45, 80, 20);
+      // Head
+      ctx.fillStyle = '#e8d5c4';
+      ctx.beginPath();
+      ctx.ellipse(cx, cy-5, 55, 65, 0, 0, Math.PI*2);
+      ctx.fill();
+      // Glasses
+      ctx.strokeStyle = '#3a3a4a';
+      ctx.lineWidth = 2;
+      ctx.strokeRect(cx-35, cy-25, 22, 18);
+      ctx.strokeRect(cx+13, cy-25, 22, 18);
+      ctx.beginPath();
+      ctx.moveTo(cx-13, cy-16);
+      ctx.lineTo(cx+13, cy-16);
+      ctx.stroke();
+      // Eyes
+      ctx.fillStyle = '#2a2a3a';
+      ctx.beginPath();
+      ctx.arc(cx-24, cy-16, 4, 0, Math.PI*2);
+      ctx.fill();
+      ctx.beginPath();
+      ctx.arc(cx+24, cy-16, 4, 0, Math.PI*2);
+      ctx.fill();
+      // Mouth
+      ctx.fillStyle = '#8a3a2a';
+      const mh = 6 + 10 * mouthOpen;
+      ctx.beginPath();
+      ctx.ellipse(cx, cy+20, 14, mh, 0, 0, Math.PI*2);
+      ctx.fill();
+    }
+
+    function drawFriendly(ctx, cx, cy, time, mouthOpen) {
+      // Casual, warm colors
+      ctx.fillStyle = '#4a6a8a';
+      ctx.fillRect(cx-40, cy+50, 80, 60);
+      ctx.fillStyle = '#3a5a7a';
+      ctx.fillRect(cx-35, cy+45, 70, 15);
+      // Head
+      ctx.fillStyle = '#f5d0b8';
+      ctx.beginPath();
+      ctx.ellipse(cx, cy, 50, 60, 0, 0, Math.PI*2);
+      ctx.fill();
+      // Eyes (friendly)
+      ctx.fillStyle = '#2a1f1a';
+      ctx.beginPath();
+      ctx.arc(cx-20, cy-10, 5, 0, Math.PI*2);
+      ctx.fill();
+      ctx.beginPath();
+      ctx.arc(cx+20, cy-10, 5, 0, Math.PI*2);
+      ctx.fill();
+      // Smile
+      ctx.strokeStyle = '#8a3a2a';
+      ctx.lineWidth = 2;
+      ctx.beginPath();
+      ctx.arc(cx, cy+10, 15, 0.1, Math.PI-0.1);
+      ctx.stroke();
+      // Mouth (for speaking)
+      if (mouthOpen > 0.5) {
+        ctx.fillStyle = '#8a3a2a';
+        ctx.beginPath();
+        ctx.ellipse(cx, cy+15, 10, 6, 0, 0, Math.PI*2);
+        ctx.fill();
       }
     }
 
-    // ----- Generate with Avatar -----
+    function drawTech(ctx, cx, cy, time, mouthOpen) {
+      // Futuristic, neon accents
+      ctx.fillStyle = '#1a2a3a';
+      ctx.fillRect(cx-40, cy+50, 80, 60);
+      ctx.fillStyle = '#0a1a2a';
+      ctx.fillRect(cx-35, cy+45, 70, 15);
+      // Head
+      ctx.fillStyle = '#d4c4b0';
+      ctx.beginPath();
+      ctx.ellipse(cx, cy, 50, 60, 0, 0, Math.PI*2);
+      ctx.fill();
+      // Visor/glasses
+      ctx.fillStyle = '#4a8aff';
+      ctx.globalAlpha = 0.3;
+      ctx.fillRect(cx-30, cy-25, 60, 20);
+      ctx.globalAlpha = 1.0;
+      ctx.strokeStyle = '#4a8aff';
+      ctx.lineWidth = 2;
+      ctx.strokeRect(cx-30, cy-25, 60, 20);
+      // Eyes
+      ctx.fillStyle = '#00ffcc';
+      ctx.beginPath();
+      ctx.arc(cx-18, cy-15, 4, 0, Math.PI*2);
+      ctx.fill();
+      ctx.beginPath();
+      ctx.arc(cx+18, cy-15, 4, 0, Math.PI*2);
+      ctx.fill();
+      // Mouth
+      ctx.fillStyle = '#8a3a2a';
+      const mh = 5 + 10 * mouthOpen;
+      ctx.beginPath();
+      ctx.ellipse(cx, cy+20, 12, mh, 0, 0, Math.PI*2);
+      ctx.fill();
+    }
+
+    function drawCreative(ctx, cx, cy, time, mouthOpen) {
+      // Colorful, artistic
+      const hue = (time * 20) % 360;
+      ctx.fillStyle = `hsl(${hue}, 60%, 30%)`;
+      ctx.fillRect(cx-40, cy+50, 80, 60);
+      ctx.fillStyle = `hsl(${hue+30}, 60%, 20%)`;
+      ctx.fillRect(cx-35, cy+45, 70, 15);
+      // Head
+      ctx.fillStyle = '#f5d0b8';
+      ctx.beginPath();
+      ctx.ellipse(cx, cy, 50, 60, 0, 0, Math.PI*2);
+      ctx.fill();
+      // Creative makeup
+      ctx.fillStyle = `hsl(${hue+60}, 70%, 60%)`;
+      ctx.globalAlpha = 0.3;
+      ctx.beginPath();
+      ctx.ellipse(cx-25, cy-20, 12, 8, -0.3, 0, Math.PI*2);
+      ctx.fill();
+      ctx.beginPath();
+      ctx.ellipse(cx+25, cy-20, 12, 8, 0.3, 0, Math.PI*2);
+      ctx.fill();
+      ctx.globalAlpha = 1.0;
+      // Eyes
+      ctx.fillStyle = '#2a1f1a';
+      ctx.beginPath();
+      ctx.arc(cx-20, cy-10, 5, 0, Math.PI*2);
+      ctx.fill();
+      ctx.beginPath();
+      ctx.arc(cx+20, cy-10, 5, 0, Math.PI*2);
+      ctx.fill();
+      // Mouth
+      ctx.fillStyle = '#c04060';
+      const mh = 6 + 10 * mouthOpen;
+      ctx.beginPath();
+      ctx.ellipse(cx, cy+18, 14, mh, 0, 0, Math.PI*2);
+      ctx.fill();
+    }
+
+    // ---------- Generate video ----------
     function generateAvatarVideo() {
       const text = textInput.value.trim();
-      let duration = parseInt(durationInput.value) || 15;
+      const avatarType = avatarSelect.value;
+      let duration = parseInt(durationInput.value) || 12;
       if (duration < 5) duration = 5;
       if (duration > 90) duration = 90;
       durationInput.value = duration;
-      const musicStyle = musicStyleSelect.value;
-      const mediaUrl = mediaUrlInput.value.trim();
-      const volume = parseInt(volumeSlider.value) / 100; // 0.5 to 2.0
 
-      if (!text) { setStatus('Please enter promotional text.', false); return; }
+      if (!text) { setStatus('Please enter a script.', false); return; }
 
-      setStatus(`🎬 Generating with avatar...`, true);
+      setStatus(`🎬 Generating with ${avatarType} avatar...`, true);
       generateBtn.disabled = true;
       generateBtn.innerHTML = '<i class="fas fa-spinner fa-pulse"></i> Rendering...';
 
-      // --- Canvas ---
+      // Canvas
       const canvas = document.createElement('canvas');
       canvas.width = 640;
       canvas.height = 360;
       const ctx = canvas.getContext('2d');
 
-      // --- Load background media (if any) ---
-      let mediaElement = null;
-      let isVideo = false;
-      if (mediaUrl) {
-        isVideo = mediaUrl.includes('.mp4') || mediaUrl.includes('.webm') || mediaUrl.includes('vimeo');
-        mediaElement = document.createElement(isVideo ? 'video' : 'img');
-        mediaElement.crossOrigin = 'anonymous';
-        mediaElement.src = mediaUrl;
-        if (isVideo) {
-          mediaElement.muted = true;
-          mediaElement.loop = true;
-          mediaElement.autoplay = true;
-          mediaElement.playsInline = true;
-        }
-      }
-
-      // --- Audio: TTS + Music ---
+      // Audio: Speech only
       const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
       const masterGain = audioCtx.createGain();
-      masterGain.gain.setValueAtTime(volume, audioCtx.currentTime);
+      masterGain.gain.setValueAtTime(1.0, audioCtx.currentTime);
       masterGain.connect(audioCtx.destination);
 
-      // 1. Text-to-Speech (speak and capture)
-      const speechUtterance = new SpeechSynthesisUtterance(text.slice(0, 150));
-      speechUtterance.rate = 0.9;
+      // Text-to-Speech
+      const speechUtterance = new SpeechSynthesisUtterance(text.slice(0, 200));
+      speechUtterance.rate = 0.85;
       speechUtterance.pitch = 1.0;
       speechUtterance.volume = 1.0;
-      // Select a voice
       const voices = speechSynthesis.getVoices();
       const preferredVoice = voices.find(v => v.lang.startsWith('en')) || voices[0];
       if (preferredVoice) speechUtterance.voice = preferredVoice;
 
-      // We'll estimate speech duration
-      const words = text.slice(0, 150).split(' ').length;
-      const speechDuration = Math.min(Math.max(words * 0.35, 3), 25); // seconds
+      // Estimate speech duration
+      const wordCount = text.slice(0, 200).split(' ').length;
+      const speechDuration = Math.min(Math.max(wordCount * 0.35, 3), 25);
+      const finalDuration = Math.max(duration, speechDuration + 2);
 
-      // 2. Background Music
-      const styleConfigs = {
-        ambient: { types: ['sine', 'sine'], freqs: [130, 170], gains: [0.15, 0.08] },
-        hiphop: { types: ['square', 'sawtooth'], freqs: [80, 160], gains: [0.14, 0.10] },
-        instrumental: { types: ['sawtooth', 'triangle'], freqs: [110, 220], gains: [0.14, 0.09] },
-        electronic: { types: ['square', 'sine'], freqs: [100, 200], gains: [0.15, 0.10] },
-        cinematic: { types: ['sawtooth', 'sine'], freqs: [90, 180], gains: [0.16, 0.11] }
-      };
-      const config = styleConfigs[musicStyle] || styleConfigs.ambient;
-
-      for (let i = 0; i < config.types.length; i++) {
-        const osc = audioCtx.createOscillator();
-        const gain = audioCtx.createGain();
-        osc.type = config.types[i];
-        osc.frequency.setValueAtTime(config.freqs[i], audioCtx.currentTime);
-        osc.frequency.linearRampToValueAtTime(config.freqs[i] * 1.3, audioCtx.currentTime + duration * 0.5);
-        osc.frequency.linearRampToValueAtTime(config.freqs[i] * 0.7, audioCtx.currentTime + duration);
-        gain.gain.setValueAtTime(config.gains[i] * volume, audioCtx.currentTime);
-        gain.gain.linearRampToValueAtTime(config.gains[i] * 0.2 * volume, audioCtx.currentTime + duration);
-        osc.connect(gain);
-        gain.connect(masterGain);
-        osc.start(audioCtx.currentTime);
-        osc.stop(audioCtx.currentTime + duration + 0.5);
-      }
-
-      // --- Recording ---
+      // Recording
       const stream = canvas.captureStream(30);
       const audioStreamDestination = audioCtx.createMediaStreamDestination();
       masterGain.connect(audioStreamDestination);
@@ -236,156 +316,89 @@
         video.controls = true;
         video.dataset.blobUrl = url;
         video.dataset.blob = blob;
-        setStatus(`✅ Video ready · ${duration}s · ${musicStyle}`, false);
+        setStatus(`✅ Video ready · ${finalDuration}s · ${avatarType}`, false);
         generateBtn.disabled = false;
-        generateBtn.innerHTML = '<i class="fas fa-wand-magic-sparkles"></i> Create Promo Video';
+        generateBtn.innerHTML = '<i class="fas fa-wand-magic-sparkles"></i> Generate Video';
         video.play().catch(() => {});
       };
 
       recorder.start();
 
-      // --- Animation Loop: Avatar ---
-      let startTime = performance.now();
+      // ---------- Animation loop ----------
+      const startTime = performance.now();
       let speechStarted = false;
-      let mouthOpen = false;
-
-      // Draw avatar function
-      function drawAvatar(time, mouthScale = 0.5) {
-        const cx = 320, cy = 200;
-        // Head
-        const gradient = ctx.createRadialGradient(cx-20, cy-30, 20, cx, cy, 100);
-        gradient.addColorStop(0, '#f5d0b8');
-        gradient.addColorStop(1, '#d4a084');
-        ctx.beginPath();
-        ctx.ellipse(cx, cy, 70, 80, 0, 0, Math.PI * 2);
-        ctx.fillStyle = gradient;
-        ctx.fill();
-        ctx.strokeStyle = '#b08060';
-        ctx.lineWidth = 2;
-        ctx.stroke();
-
-        // Eyes
-        ctx.fillStyle = '#2a1f1a';
-        ctx.beginPath();
-        ctx.ellipse(cx-25, cy-15, 8, 10, 0, 0, Math.PI*2);
-        ctx.fill();
-        ctx.beginPath();
-        ctx.ellipse(cx+25, cy-15, 8, 10, 0, 0, Math.PI*2);
-        ctx.fill();
-        ctx.fillStyle = 'white';
-        ctx.beginPath();
-        ctx.arc(cx-28, cy-18, 3, 0, Math.PI*2);
-        ctx.fill();
-        ctx.beginPath();
-        ctx.arc(cx+22, cy-18, 3, 0, Math.PI*2);
-        ctx.fill();
-
-        // Eyebrows (move with expression)
-        ctx.strokeStyle = '#3a2a1a';
-        ctx.lineWidth = 2;
-        ctx.beginPath();
-        ctx.moveTo(cx-35, cy-30);
-        ctx.lineTo(cx-15, cy-32);
-        ctx.stroke();
-        ctx.beginPath();
-        ctx.moveTo(cx+35, cy-30);
-        ctx.lineTo(cx+15, cy-32);
-        ctx.stroke();
-
-        // Mouth (lip sync)
-        const mouthH = 10 + 12 * mouthScale;
-        ctx.fillStyle = '#8a3a2a';
-        ctx.beginPath();
-        ctx.ellipse(cx, cy+20, 18, mouthH, 0, 0, Math.PI*2);
-        ctx.fill();
-        ctx.strokeStyle = '#5a2a1a';
-        ctx.lineWidth = 1.5;
-        ctx.stroke();
-
-        // Body (simple)
-        ctx.fillStyle = '#2a4a7a';
-        ctx.fillRect(cx-40, cy+60, 80, 60);
-        // Collar
-        ctx.fillStyle = '#1a2a4a';
-        ctx.beginPath();
-        ctx.moveTo(cx-30, cy+55);
-        ctx.lineTo(cx, cy+70);
-        ctx.lineTo(cx+30, cy+55);
-        ctx.fill();
-
-        // Hands/gestures (simple animation)
-        const handWave = Math.sin(time * 2) * 0.3 + 0.7;
-        ctx.fillStyle = '#f5d0b8';
-        // Left hand
-        ctx.beginPath();
-        ctx.ellipse(cx-65, cy+40 + handWave*10, 12, 15, 0.2, 0, Math.PI*2);
-        ctx.fill();
-        // Right hand
-        ctx.beginPath();
-        ctx.ellipse(cx+65, cy+40 - handWave*10, 12, 15, -0.2, 0, Math.PI*2);
-        ctx.fill();
-      }
+      const words = text.split(' ');
+      let wordIndex = 0;
 
       function renderFrame() {
         const elapsed = (performance.now() - startTime) / 1000;
-        if (elapsed >= duration || recorder.state !== 'recording') {
+        if (elapsed >= finalDuration || recorder.state !== 'recording') {
           if (recorder.state === 'recording') recorder.stop();
           return;
         }
 
         ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-        // Draw background
-        if (mediaElement && !isVideo && mediaElement.complete) {
-          ctx.drawImage(mediaElement, 0, 0, canvas.width, canvas.height);
-        } else if (mediaElement && isVideo && mediaElement.readyState >= 2) {
-          ctx.drawImage(mediaElement, 0, 0, canvas.width, canvas.height);
-        } else {
-          // Gradient background
-          const grad = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
-          grad.addColorStop(0, '#0f1a2a');
-          grad.addColorStop(1, '#1a2a3a');
-          ctx.fillStyle = grad;
-          ctx.fillRect(0, 0, canvas.width, canvas.height);
-        }
+        // Gradient background
+        const grad = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
+        grad.addColorStop(0, '#0f1a2a');
+        grad.addColorStop(0.5, '#1a2a3a');
+        grad.addColorStop(1, '#0f1a2a');
+        ctx.fillStyle = grad;
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-        // Animate mouth based on speech (simulated)
+        // Determine mouth movement based on speech progress
         const speechProgress = Math.min(elapsed / speechDuration, 1);
-        let mouthScale = 0.2;
+        let mouthOpen = 0;
         if (speechProgress < 0.9) {
-          // Simulate syllables
-          const syllablePhase = Math.sin(elapsed * 12) * 0.5 + 0.5;
-          mouthScale = 0.3 + syllablePhase * 0.7;
+          const syllablePhase = Math.sin(elapsed * 14) * 0.5 + 0.5;
+          mouthOpen = 0.3 + syllablePhase * 0.7;
         }
 
-        // Draw avatar with overlay
-        drawAvatar(elapsed, mouthScale);
+        // Draw selected avatar
+        const cx = 320, cy = 180;
+        switch (avatarType) {
+          case 'professional': drawProfessional(ctx, cx, cy, elapsed, mouthOpen); break;
+          case 'friendly': drawFriendly(ctx, cx, cy, elapsed, mouthOpen); break;
+          case 'tech': drawTech(ctx, cx, cy, elapsed, mouthOpen); break;
+          case 'creative': drawCreative(ctx, cx, cy, elapsed, mouthOpen); break;
+          default: drawFriendly(ctx, cx, cy, elapsed, mouthOpen);
+        }
 
-        // ---- Text overlay (optional) ----
+        // ------ Highlight text as it's spoken ------
+        const wordsSpoken = Math.floor(speechProgress * words.length);
+        const displayWords = words.slice(0, wordsSpoken + 1);
+        const remainingWords = words.slice(wordsSpoken + 1);
+        const displayedText = displayWords.join(' ');
+        const remainingText = remainingWords.join(' ');
+
         ctx.textAlign = 'center';
         ctx.textBaseline = 'bottom';
-        ctx.shadowColor = 'rgba(0,0,0,0.8)';
+        ctx.shadowColor = 'rgba(0,0,0,0.9)';
         ctx.shadowBlur = 15;
-        const displayText = text.length > 80 ? text.slice(0, 77) + '…' : text;
-        ctx.font = 'bold 16px "Segoe UI", system-ui, sans-serif';
-        ctx.fillStyle = '#ffffff';
-        ctx.fillText(displayText, canvas.width/2, canvas.height - 15);
-        ctx.shadowBlur = 0;
 
+        // Highlighted (spoken) text - white with glow
+        ctx.font = 'bold 20px "Segoe UI", system-ui, sans-serif';
+        ctx.fillStyle = '#ffffff';
+        ctx.shadowColor = 'rgba(123, 140, 255, 0.6)';
+        ctx.shadowBlur = 20;
+        const line1 = displayedText.length > 60 ? displayedText.slice(0, 60) + '…' : displayedText;
+        ctx.fillText(line1, canvas.width/2, canvas.height - 40);
+
+        // Remaining text - dimmed
+        ctx.font = '18px "Segoe UI", system-ui, sans-serif';
+        ctx.fillStyle = '#6a7a9a';
+        ctx.shadowBlur = 8;
+        ctx.shadowColor = 'rgba(0,0,0,0.5)';
+        const line2 = remainingText.length > 60 ? remainingText.slice(0, 60) + '…' : remainingText;
+        ctx.fillText(line2, canvas.width/2, canvas.height - 12);
+
+        ctx.shadowBlur = 0;
         requestAnimationFrame(renderFrame);
       }
 
-      // ---- Start everything ----
-      // Play speech
-      speechUtterance.onend = () => { /* speech done */ };
+      // Start
       speechSynthesis.speak(speechUtterance);
-
-      // Start background media if video
-      if (mediaElement && isVideo) {
-        mediaElement.play().catch(() => {});
-      }
-
-      // Start rendering
       renderFrame();
 
       // Stop after duration
@@ -395,16 +408,16 @@
           speechSynthesis.cancel();
           audioCtx.close().catch(() => {});
         }, 300);
-      }, duration * 1000 + 200);
+      }, finalDuration * 1000 + 200);
     }
 
     // --- Event listeners ---
     generateBtn.addEventListener('click', generateAvatarVideo);
 
     randomBtn.addEventListener('click', () => {
-      const randomIndex = Math.floor(Math.random() * sampleTexts.length);
-      textInput.value = sampleTexts[randomIndex];
-      setStatus('Random text loaded. Generate!', false);
+      const randomIndex = Math.floor(Math.random() * sampleScripts.length);
+      textInput.value = sampleScripts[randomIndex];
+      setStatus('Random script loaded. Generate!', false);
     });
 
     function downloadVideo(device) {
@@ -412,7 +425,7 @@
       if (!blob) { setStatus('Generate a video first!', false); return; }
       const link = document.createElement('a');
       link.href = URL.createObjectURL(blob);
-      link.download = `avatar-video-${device}-${Date.now()}.webm`;
+      link.download = `avatar-${device}-${Date.now()}.webm`;
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
@@ -423,7 +436,7 @@
     downloadMobile.addEventListener('click', () => downloadVideo('mobile'));
     downloadComputer.addEventListener('click', () => downloadVideo('computer'));
 
-    setStatus('Ready. Paste text & generate.', false);
+    setStatus('Ready. Choose avatar & generate.', false);
   })();
 </script>
 </body>
