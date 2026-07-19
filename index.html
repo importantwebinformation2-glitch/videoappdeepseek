@@ -1,457 +1,524 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
-  <title>Avatar Speaker · Unlimited Duration</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', system-ui, sans-serif; }
-    body { background: #0a0e1a; min-height: 100vh; display: flex; justify-content: center; align-items: center; padding: 16px; }
-    .app-card { max-width: 780px; width: 100%; background: rgba(14, 22, 42, 0.95); backdrop-filter: blur(12px); border-radius: 40px; padding: 24px; border: 1px solid #2e4068; box-shadow: 0 20px 40px rgba(0,0,0,0.7); }
-    h1 { font-size: 1.8rem; color: #f0f4ff; display: flex; align-items: center; gap: 12px; margin-bottom: 2px; }
-    h1 i { background: linear-gradient(135deg, #7b8cff, #f47aff); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-    .subhead { color: #9aa7c9; margin-bottom: 16px; padding-left: 14px; border-left: 3px solid #7b8cff; font-size: 0.85rem; }
-    .input-area { background: #0f162b; border-radius: 24px; padding: 14px 18px; border: 1px solid #2e3a5a; margin-bottom: 14px; }
-    textarea { width: 100%; background: transparent; border: none; outline: none; color: #e9efff; font-size: 0.95rem; resize: vertical; min-height: 80px; line-height: 1.5; }
-    textarea::placeholder { color: #5d6f93; }
-    .control-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 12px 0 16px; }
-    .control-group { background: #111a30; border-radius: 18px; padding: 10px 14px; border: 1px solid #263153; }
-    .control-group label { display: block; font-size: 0.75rem; color: #8d9fcb; margin-bottom: 4px; }
-    .control-group select, .control-group input { width: 100%; background: #0b101f; border: 1px solid #2e3a5a; border-radius: 30px; padding: 8px 12px; color: #e9efff; font-size: 0.9rem; outline: none; }
-    .action-bar { display: flex; flex-wrap: wrap; gap: 10px; margin: 12px 0 16px; }
-    .btn-primary { background: linear-gradient(135deg, #5f73e0, #8b5cf6); border: none; padding: 14px 24px; border-radius: 60px; font-weight: 600; color: white; display: inline-flex; align-items: center; gap: 10px; cursor: pointer; flex: 2 1 auto; justify-content: center; box-shadow: 0 6px 18px rgba(91, 104, 224, 0.3); transition: 0.2s; }
-    .btn-primary:hover { transform: scale(1.02); }
-    .btn-secondary { background: rgba(255, 255, 255, 0.06); border: 1px solid #384568; padding: 14px 18px; border-radius: 60px; color: #cdd9ff; display: inline-flex; align-items: center; gap: 10px; cursor: pointer; flex: 1 1 auto; justify-content: center; transition: 0.2s; }
-    .btn-secondary:hover { background: rgba(255, 255, 255, 0.12); border-color: #5f73e0; }
-    .preview-box { background: #080c1a; border-radius: 24px; padding: 12px; border: 1px solid #263153; margin: 12px 0 14px; }
-    .preview-header { display: flex; justify-content: space-between; color: #8d9fcb; font-size: 0.8rem; padding: 0 6px 8px 6px; border-bottom: 1px solid #1e2844; }
-    #videoPreview { width: 100%; border-radius: 16px; background: #03050b; aspect-ratio: 16 / 9; object-fit: cover; display: block; border: 1px solid #30406a; }
-    .status-badge { display: inline-flex; align-items: center; gap: 8px; background: #18213a; padding: 6px 16px; border-radius: 40px; color: #b0c2f0; font-size: 0.8rem; border: 1px solid #31416b; margin-top: 10px; }
-    .status-badge i { color: #6fefb0; }
-    .download-group { display: flex; gap: 10px; flex-wrap: wrap; margin: 6px 0; }
-    .download-btn { background: #1f2940; border: 1px solid #36476b; padding: 10px 16px; border-radius: 40px; color: #d3defa; font-weight: 500; display: inline-flex; align-items: center; gap: 8px; cursor: pointer; flex: 1 1 100px; justify-content: center; transition: 0.2s; }
-    .download-btn:hover { background: #2b3857; border-color: #7b8cff; color: white; }
-    .footer-note { margin-top: 16px; text-align: center; font-size: 0.7rem; color: #4a5d84; border-top: 1px dashed #1f2d4a; padding-top: 14px; display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; }
-    @media (max-width: 600px) { .app-card { padding: 16px; } .control-grid { grid-template-columns: 1fr; } .action-bar, .download-group { flex-direction: column; } .btn-primary, .btn-secondary, .download-btn { width: 100%; } }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>Avatar Speaker · Fixed</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', system-ui, sans-serif; }
+        body { background: #0a0e1a; min-height: 100vh; display: flex; justify-content: center; align-items: center; padding: 16px; }
+        .app-card { max-width: 780px; width: 100%; background: rgba(14, 22, 42, 0.95); backdrop-filter: blur(12px); border-radius: 40px; padding: 24px; border: 1px solid #2e4068; box-shadow: 0 20px 40px rgba(0,0,0,0.7); }
+        h1 { font-size: 1.8rem; color: #f0f4ff; display: flex; align-items: center; gap: 12px; margin-bottom: 2px; }
+        h1 i { background: linear-gradient(135deg, #7b8cff, #f47aff); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .subhead { color: #9aa7c9; margin-bottom: 16px; padding-left: 14px; border-left: 3px solid #7b8cff; font-size: 0.85rem; }
+        .input-area { background: #0f162b; border-radius: 24px; padding: 14px 18px; border: 1px solid #2e3a5a; margin-bottom: 14px; }
+        textarea { width: 100%; background: transparent; border: none; outline: none; color: #e9efff; font-size: 0.95rem; resize: vertical; min-height: 80px; line-height: 1.5; }
+        textarea::placeholder { color: #5d6f93; }
+        .control-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 12px 0 16px; }
+        .control-group { background: #111a30; border-radius: 18px; padding: 10px 14px; border: 1px solid #263153; }
+        .control-group label { display: block; font-size: 0.75rem; color: #8d9fcb; margin-bottom: 4px; }
+        .control-group select, .control-group input { width: 100%; background: #0b101f; border: 1px solid #2e3a5a; border-radius: 30px; padding: 8px 12px; color: #e9efff; font-size: 0.9rem; outline: none; }
+        .action-bar { display: flex; flex-wrap: wrap; gap: 10px; margin: 12px 0 16px; }
+        .btn-primary { background: linear-gradient(135deg, #5f73e0, #8b5cf6); border: none; padding: 14px 24px; border-radius: 60px; font-weight: 600; color: white; display: inline-flex; align-items: center; gap: 10px; cursor: pointer; flex: 2 1 auto; justify-content: center; box-shadow: 0 6px 18px rgba(91, 104, 224, 0.3); transition: 0.2s; }
+        .btn-primary:hover { transform: scale(1.02); }
+        .btn-primary:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+        .btn-secondary { background: rgba(255, 255, 255, 0.06); border: 1px solid #384568; padding: 14px 18px; border-radius: 60px; color: #cdd9ff; display: inline-flex; align-items: center; gap: 10px; cursor: pointer; flex: 1 1 auto; justify-content: center; transition: 0.2s; }
+        .btn-secondary:hover { background: rgba(255, 255, 255, 0.12); border-color: #5f73e0; }
+        .preview-box { background: #080c1a; border-radius: 24px; padding: 12px; border: 1px solid #263153; margin: 12px 0 14px; }
+        .preview-header { display: flex; justify-content: space-between; color: #8d9fcb; font-size: 0.8rem; padding: 0 6px 8px 6px; border-bottom: 1px solid #1e2844; }
+        #videoPreview { width: 100%; border-radius: 16px; background: #03050b; aspect-ratio: 16 / 9; object-fit: cover; display: block; border: 1px solid #30406a; }
+        .status-badge { display: inline-flex; align-items: center; gap: 8px; background: #18213a; padding: 6px 16px; border-radius: 40px; color: #b0c2f0; font-size: 0.8rem; border: 1px solid #31416b; margin-top: 10px; }
+        .status-badge i { color: #6fefb0; }
+        .download-group { display: flex; gap: 10px; flex-wrap: wrap; margin: 6px 0; }
+        .download-btn { background: #1f2940; border: 1px solid #36476b; padding: 10px 16px; border-radius: 40px; color: #d3defa; font-weight: 500; display: inline-flex; align-items: center; gap: 8px; cursor: pointer; flex: 1 1 100px; justify-content: center; transition: 0.2s; }
+        .download-btn:hover { background: #2b3857; border-color: #7b8cff; color: white; }
+        .download-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+        .footer-note { margin-top: 16px; text-align: center; font-size: 0.7rem; color: #4a5d84; border-top: 1px dashed #1f2d4a; padding-top: 14px; display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; }
+        .error-text { color: #ff6b6b; }
+        @media (max-width: 600px) { .app-card { padding: 16px; } .control-grid { grid-template-columns: 1fr; } .action-bar, .download-group { flex-direction: column; } .btn-primary, .btn-secondary, .download-btn { width: 100%; } }
+    </style>
 </head>
 <body>
 <div class="app-card">
-  <h1><i class="fas fa-user-tie"></i> Avatar Speaker</h1>
-  <div class="subhead"><i class="fas fa-comment"></i> Choose an avatar · Speaks your text · Unlimited duration</div>
+    <h1><i class="fas fa-user-tie"></i> Avatar Speaker</h1>
+    <div class="subhead"><i class="fas fa-comment"></i> Choose an avatar · Speaks your text · Unlimited duration</div>
 
-  <div class="input-area">
-    <textarea id="textInput" placeholder="Paste your script here. The avatar will speak it..." rows="4">Hello and welcome! Today we're exploring the future of artificial intelligence. It's an exciting time to be alive. Let's dive in and see what's possible.</textarea>
-  </div>
-
-  <div class="control-grid">
-    <div class="control-group">
-      <label><i class="fas fa-user-tie"></i> Choose Avatar</label>
-      <select id="avatarSelect">
-        <option value="professional">🧑‍💼 Professional</option>
-        <option value="friendly">😊 Friendly</option>
-        <option value="tech">👩‍💻 Tech</option>
-        <option value="creative">🎨 Creative</option>
-      </select>
+    <div class="input-area">
+        <textarea id="textInput" placeholder="Paste your script here. The avatar will speak it..." rows="4">Hello and welcome! Today we're exploring the future of artificial intelligence. It's an exciting time to be alive. Let's dive in and see what's possible.</textarea>
     </div>
-    <div class="control-group">
-      <label><i class="fas fa-clock"></i> Duration (seconds)</label>
-      <input type="number" id="durationInput" value="30" min="5" max="600" step="5">
+
+    <div class="control-grid">
+        <div class="control-group">
+            <label><i class="fas fa-user-tie"></i> Choose Avatar</label>
+            <select id="avatarSelect">
+                <option value="professional">🧑‍💼 Professional</option>
+                <option value="friendly">😊 Friendly</option>
+                <option value="tech">👩‍💻 Tech</option>
+                <option value="creative">🎨 Creative</option>
+            </select>
+        </div>
+        <div class="control-group">
+            <label><i class="fas fa-clock"></i> Duration (seconds)</label>
+            <input type="number" id="durationInput" value="30" min="5" max="600" step="5">
+        </div>
     </div>
-  </div>
 
-  <div class="action-bar">
-    <button class="btn-primary" id="generateBtn"><i class="fas fa-wand-magic-sparkles"></i> Generate Video</button>
-    <button class="btn-secondary" id="randomBtn"><i class="fas fa-dice"></i> Random Script</button>
-  </div>
+    <div class="action-bar">
+        <button class="btn-primary" id="generateBtn"><i class="fas fa-wand-magic-sparkles"></i> Generate Video</button>
+        <button class="btn-secondary" id="randomBtn"><i class="fas fa-dice"></i> Random Script</button>
+    </div>
 
-  <div class="preview-box">
-    <div class="preview-header"><span><i class="fas fa-play"></i> Preview</span><span><i class="fas fa-volume-high"></i> Voice only</span></div>
-    <video id="videoPreview" controls playsinline muted><source src="" type="video/mp4">Your browser does not support the video tag.</video>
-    <div class="status-badge" id="statusBadge"><i class="fas fa-circle-check"></i> <span id="statusText">Ready. Choose avatar & generate.</span></div>
-  </div>
+    <div class="preview-box">
+        <div class="preview-header"><span><i class="fas fa-play"></i> Preview</span><span><i class="fas fa-volume-high"></i> Voice only</span></div>
+        <video id="videoPreview" controls playsinline muted><source src="" type="video/mp4">Your browser does not support the video tag.</video>
+        <div class="status-badge" id="statusBadge"><i class="fas fa-circle-check"></i> <span id="statusText">Ready. Choose avatar & generate.</span></div>
+    </div>
 
-  <div class="download-group">
-    <button class="download-btn" id="downloadMobileBtn"><i class="fas fa-mobile-screen-button"></i> Mobile</button>
-    <button class="download-btn" id="downloadComputerBtn"><i class="fas fa-desktop"></i> Computer</button>
-  </div>
+    <div class="download-group">
+        <button class="download-btn" id="downloadMobileBtn" disabled><i class="fas fa-mobile-screen-button"></i> Mobile</button>
+        <button class="download-btn" id="downloadComputerBtn" disabled><i class="fas fa-desktop"></i> Computer</button>
+    </div>
 
-  <div class="footer-note">
-    <span><i class="fas fa-robot"></i> AI Presenter</span>
-    <span><i class="fas fa-highlighter"></i> Text highlights</span>
-    <span><i class="fas fa-infinity"></i> Unlimited duration</span>
-  </div>
+    <div class="footer-note">
+        <span><i class="fas fa-robot"></i> AI Presenter</span>
+        <span><i class="fas fa-highlighter"></i> Text highlights</span>
+        <span><i class="fas fa-infinity"></i> Unlimited duration</span>
+    </div>
 </div>
 
 <script>
-  (function() {
-    // DOM refs
-    const video = document.getElementById('videoPreview');
-    const statusText = document.getElementById('statusText');
-    const statusBadge = document.getElementById('statusBadge');
-    const textInput = document.getElementById('textInput');
-    const avatarSelect = document.getElementById('avatarSelect');
-    const durationInput = document.getElementById('durationInput');
-    const generateBtn = document.getElementById('generateBtn');
-    const randomBtn = document.getElementById('randomBtn');
-    const downloadMobile = document.getElementById('downloadMobileBtn');
-    const downloadComputer = document.getElementById('downloadComputerBtn');
+    (function() {
+        // DOM refs
+        const video = document.getElementById('videoPreview');
+        const statusText = document.getElementById('statusText');
+        const statusBadge = document.getElementById('statusBadge');
+        const textInput = document.getElementById('textInput');
+        const avatarSelect = document.getElementById('avatarSelect');
+        const durationInput = document.getElementById('durationInput');
+        const generateBtn = document.getElementById('generateBtn');
+        const randomBtn = document.getElementById('randomBtn');
+        const downloadMobile = document.getElementById('downloadMobileBtn');
+        const downloadComputer = document.getElementById('downloadComputerBtn');
 
-    const sampleScripts = [
-      "Hello and welcome! Today we're exploring the future of artificial intelligence. It's an exciting time to be alive. Let's dive in and see what's possible.",
-      "Did you know that the average person spends over two hours on social media every day? That's a lot of time that could be used more productively.",
-      "CashKaro is one of India's leading cashback platforms. You can earn cashback on every purchase you make from thousands of online stores.",
-      "This is a great product for anyone looking to save money and time. Try it today and see the difference it makes in your daily life.",
-      "Music has the power to change our mood, inspire us, and bring people together. Let's celebrate the universal language of music."
-    ];
+        const sampleScripts = [
+            "Hello and welcome! Today we're exploring the future of artificial intelligence. It's an exciting time to be alive. Let's dive in and see what's possible.",
+            "Did you know that the average person spends over two hours on social media every day? That's a lot of time that could be used more productively.",
+            "CashKaro is one of India's leading cashback platforms. You can earn cashback on every purchase you make from thousands of online stores.",
+            "This is a great product for anyone looking to save money and time. Try it today and see the difference it makes in your daily life.",
+            "Music has the power to change our mood, inspire us, and bring people together. Let's celebrate the universal language of music."
+        ];
 
-    // ---------- Avatar drawing functions ----------
-    function drawProfessional(ctx, cx, cy, time, mouthOpen) {
-      // Dark suit, glasses
-      ctx.fillStyle = '#2a2a3a';
-      ctx.fillRect(cx-45, cy+50, 90, 70);
-      ctx.fillStyle = '#1a1a2a';
-      ctx.fillRect(cx-40, cy+45, 80, 20);
-      // Head
-      ctx.fillStyle = '#e8d5c4';
-      ctx.beginPath();
-      ctx.ellipse(cx, cy-5, 55, 65, 0, 0, Math.PI*2);
-      ctx.fill();
-      // Glasses
-      ctx.strokeStyle = '#3a3a4a';
-      ctx.lineWidth = 2;
-      ctx.strokeRect(cx-35, cy-25, 22, 18);
-      ctx.strokeRect(cx+13, cy-25, 22, 18);
-      ctx.beginPath();
-      ctx.moveTo(cx-13, cy-16);
-      ctx.lineTo(cx+13, cy-16);
-      ctx.stroke();
-      // Eyes
-      ctx.fillStyle = '#2a2a3a';
-      ctx.beginPath();
-      ctx.arc(cx-24, cy-16, 4, 0, Math.PI*2);
-      ctx.fill();
-      ctx.beginPath();
-      ctx.arc(cx+24, cy-16, 4, 0, Math.PI*2);
-      ctx.fill();
-      // Mouth
-      ctx.fillStyle = '#8a3a2a';
-      const mh = 6 + 12 * mouthOpen;
-      ctx.beginPath();
-      ctx.ellipse(cx, cy+20, 14, mh, 0, 0, Math.PI*2);
-      ctx.fill();
-    }
+        let currentBlob = null;
 
-    function drawFriendly(ctx, cx, cy, time, mouthOpen) {
-      // Casual, warm colors
-      ctx.fillStyle = '#4a6a8a';
-      ctx.fillRect(cx-40, cy+50, 80, 60);
-      ctx.fillStyle = '#3a5a7a';
-      ctx.fillRect(cx-35, cy+45, 70, 15);
-      // Head
-      ctx.fillStyle = '#f5d0b8';
-      ctx.beginPath();
-      ctx.ellipse(cx, cy, 50, 60, 0, 0, Math.PI*2);
-      ctx.fill();
-      // Eyes
-      ctx.fillStyle = '#2a1f1a';
-      ctx.beginPath();
-      ctx.arc(cx-20, cy-10, 5, 0, Math.PI*2);
-      ctx.fill();
-      ctx.beginPath();
-      ctx.arc(cx+20, cy-10, 5, 0, Math.PI*2);
-      ctx.fill();
-      // Smile
-      ctx.strokeStyle = '#8a3a2a';
-      ctx.lineWidth = 2;
-      ctx.beginPath();
-      ctx.arc(cx, cy+10, 15, 0.1, Math.PI-0.1);
-      ctx.stroke();
-      // Mouth for speaking
-      if (mouthOpen > 0.3) {
-        ctx.fillStyle = '#8a3a2a';
-        const mh = 6 + 10 * mouthOpen;
-        ctx.beginPath();
-        ctx.ellipse(cx, cy+15, 10, mh, 0, 0, Math.PI*2);
-        ctx.fill();
-      }
-    }
-
-    function drawTech(ctx, cx, cy, time, mouthOpen) {
-      // Futuristic, neon accents
-      ctx.fillStyle = '#1a2a3a';
-      ctx.fillRect(cx-40, cy+50, 80, 60);
-      ctx.fillStyle = '#0a1a2a';
-      ctx.fillRect(cx-35, cy+45, 70, 15);
-      // Head
-      ctx.fillStyle = '#d4c4b0';
-      ctx.beginPath();
-      ctx.ellipse(cx, cy, 50, 60, 0, 0, Math.PI*2);
-      ctx.fill();
-      // Visor/glasses
-      ctx.fillStyle = '#4a8aff';
-      ctx.globalAlpha = 0.3;
-      ctx.fillRect(cx-30, cy-25, 60, 20);
-      ctx.globalAlpha = 1.0;
-      ctx.strokeStyle = '#4a8aff';
-      ctx.lineWidth = 2;
-      ctx.strokeRect(cx-30, cy-25, 60, 20);
-      // Eyes
-      ctx.fillStyle = '#00ffcc';
-      ctx.beginPath();
-      ctx.arc(cx-18, cy-15, 4, 0, Math.PI*2);
-      ctx.fill();
-      ctx.beginPath();
-      ctx.arc(cx+18, cy-15, 4, 0, Math.PI*2);
-      ctx.fill();
-      // Mouth
-      ctx.fillStyle = '#8a3a2a';
-      const mh = 5 + 12 * mouthOpen;
-      ctx.beginPath();
-      ctx.ellipse(cx, cy+20, 12, mh, 0, 0, Math.PI*2);
-      ctx.fill();
-    }
-
-    function drawCreative(ctx, cx, cy, time, mouthOpen) {
-      // Colorful, artistic
-      const hue = (time * 20) % 360;
-      ctx.fillStyle = `hsl(${hue}, 60%, 30%)`;
-      ctx.fillRect(cx-40, cy+50, 80, 60);
-      ctx.fillStyle = `hsl(${hue+30}, 60%, 20%)`;
-      ctx.fillRect(cx-35, cy+45, 70, 15);
-      // Head
-      ctx.fillStyle = '#f5d0b8';
-      ctx.beginPath();
-      ctx.ellipse(cx, cy, 50, 60, 0, 0, Math.PI*2);
-      ctx.fill();
-      // Creative makeup
-      ctx.fillStyle = `hsl(${hue+60}, 70%, 60%)`;
-      ctx.globalAlpha = 0.3;
-      ctx.beginPath();
-      ctx.ellipse(cx-25, cy-20, 12, 8, -0.3, 0, Math.PI*2);
-      ctx.fill();
-      ctx.beginPath();
-      ctx.ellipse(cx+25, cy-20, 12, 8, 0.3, 0, Math.PI*2);
-      ctx.fill();
-      ctx.globalAlpha = 1.0;
-      // Eyes
-      ctx.fillStyle = '#2a1f1a';
-      ctx.beginPath();
-      ctx.arc(cx-20, cy-10, 5, 0, Math.PI*2);
-      ctx.fill();
-      ctx.beginPath();
-      ctx.arc(cx+20, cy-10, 5, 0, Math.PI*2);
-      ctx.fill();
-      // Mouth
-      ctx.fillStyle = '#c04060';
-      const mh = 6 + 12 * mouthOpen;
-      ctx.beginPath();
-      ctx.ellipse(cx, cy+18, 14, mh, 0, 0, Math.PI*2);
-      ctx.fill();
-    }
-
-    // ---------- Generate video ----------
-    function generateAvatarVideo() {
-      const text = textInput.value.trim();
-      const avatarType = avatarSelect.value;
-      let duration = parseInt(durationInput.value) || 30;
-      if (duration < 5) duration = 5;
-      if (duration > 600) duration = 600;
-      durationInput.value = duration;
-
-      if (!text) { setStatus('Please enter a script.', false); return; }
-
-      setStatus(`🎬 Generating with ${avatarType} avatar...`, true);
-      generateBtn.disabled = true;
-      generateBtn.innerHTML = '<i class="fas fa-spinner fa-pulse"></i> Rendering...';
-
-      // Canvas
-      const canvas = document.createElement('canvas');
-      canvas.width = 640;
-      canvas.height = 360;
-      const ctx = canvas.getContext('2d');
-
-      // Audio: Speech only (no background music)
-      const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-      const masterGain = audioCtx.createGain();
-      masterGain.gain.setValueAtTime(1.0, audioCtx.currentTime);
-      masterGain.connect(audioCtx.destination);
-
-      // Text-to-Speech
-      const speechUtterance = new SpeechSynthesisUtterance(text);
-      speechUtterance.rate = 0.85;
-      speechUtterance.pitch = 1.0;
-      speechUtterance.volume = 1.0;
-      
-      // Get available voices and pick a good one
-      const voices = speechSynthesis.getVoices();
-      // Prefer English voices
-      const preferredVoice = voices.find(v => v.lang.startsWith('en') && v.name.includes('Google')) || 
-                            voices.find(v => v.lang.startsWith('en')) || 
-                            voices[0];
-      if (preferredVoice) speechUtterance.voice = preferredVoice;
-
-      // Estimate speech duration based on text length
-      const wordCount = text.split(' ').length;
-      const estimatedSpeechDuration = Math.min(Math.max(wordCount * 0.4, 3), 60);
-      const finalDuration = Math.max(duration, estimatedSpeechDuration + 2);
-
-      // Update duration display to actual
-      durationInput.value = Math.ceil(finalDuration);
-
-      // Recording
-      const stream = canvas.captureStream(30);
-      const audioStreamDestination = audioCtx.createMediaStreamDestination();
-      masterGain.connect(audioStreamDestination);
-      const audioTrack = audioStreamDestination.stream.getAudioTracks()[0];
-      const videoTrack = stream.getVideoTracks()[0];
-      const combinedStream = new MediaStream([videoTrack, audioTrack]);
-
-      const recorder = new MediaRecorder(combinedStream, {
-        mimeType: 'video/webm;codecs=vp8,opus',
-        videoBitsPerSecond: 2500000,
-      });
-
-      const chunks = [];
-      recorder.ondataavailable = (e) => { if (e.data.size > 0) chunks.push(e.data); };
-      recorder.onstop = () => {
-        const blob = new Blob(chunks, { type: 'video/webm' });
-        const url = URL.createObjectURL(blob);
-        video.src = url;
-        video.muted = false;
-        video.controls = true;
-        video.dataset.blobUrl = url;
-        video.dataset.blob = blob;
-        setStatus(`✅ Video ready · ${Math.ceil(finalDuration)}s · ${avatarType}`, false);
-        generateBtn.disabled = false;
-        generateBtn.innerHTML = '<i class="fas fa-wand-magic-sparkles"></i> Generate Video';
-        video.play().catch(() => {});
-      };
-
-      recorder.start();
-
-      // ---------- Animation loop ----------
-      const startTime = performance.now();
-      const words = text.split(' ');
-      let speechStarted = false;
-
-      function renderFrame() {
-        const elapsed = (performance.now() - startTime) / 1000;
-        if (elapsed >= finalDuration || recorder.state !== 'recording') {
-          if (recorder.state === 'recording') recorder.stop();
-          return;
+        function setStatus(message, isGenerating = false, isError = false) {
+            statusText.textContent = message;
+            const icon = statusBadge.querySelector('i');
+            if (isError) {
+                statusBadge.style.borderColor = '#ff6b6b';
+                statusBadge.style.background = '#2a1a1a';
+                icon.className = 'fas fa-circle-exclamation';
+                icon.style.color = '#ff6b6b';
+            } else if (isGenerating) {
+                statusBadge.style.borderColor = '#f5b342';
+                statusBadge.style.background = '#2f2a1a';
+                icon.className = 'fas fa-spinner fa-pulse';
+                icon.style.color = '#f5b342';
+            } else {
+                statusBadge.style.borderColor = '#31416b';
+                statusBadge.style.background = '#18213a';
+                icon.className = 'fas fa-circle-check';
+                icon.style.color = '#6fefb0';
+            }
         }
 
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-        // Gradient background
-        const grad = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
-        grad.addColorStop(0, '#0f1a2a');
-        grad.addColorStop(0.5, '#1a2a3a');
-        grad.addColorStop(1, '#0f1a2a');
-        ctx.fillStyle = grad;
-        ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-        // Determine mouth movement based on speech progress
-        const speechProgress = Math.min(elapsed / estimatedSpeechDuration, 1);
-        let mouthOpen = 0;
-        if (speechProgress < 0.9) {
-          // Simulate syllables with a faster oscillation
-          const syllablePhase = Math.sin(elapsed * 16) * 0.5 + 0.5;
-          mouthOpen = 0.2 + syllablePhase * 0.8;
+        // ---------- Avatar drawing functions ----------
+        function drawProfessional(ctx, cx, cy, time, mouthOpen) {
+            ctx.fillStyle = '#2a2a3a';
+            ctx.fillRect(cx-45, cy+50, 90, 70);
+            ctx.fillStyle = '#1a1a2a';
+            ctx.fillRect(cx-40, cy+45, 80, 20);
+            ctx.fillStyle = '#e8d5c4';
+            ctx.beginPath();
+            ctx.ellipse(cx, cy-5, 55, 65, 0, 0, Math.PI*2);
+            ctx.fill();
+            ctx.strokeStyle = '#3a3a4a';
+            ctx.lineWidth = 2;
+            ctx.strokeRect(cx-35, cy-25, 22, 18);
+            ctx.strokeRect(cx+13, cy-25, 22, 18);
+            ctx.beginPath();
+            ctx.moveTo(cx-13, cy-16);
+            ctx.lineTo(cx+13, cy-16);
+            ctx.stroke();
+            ctx.fillStyle = '#2a2a3a';
+            ctx.beginPath();
+            ctx.arc(cx-24, cy-16, 4, 0, Math.PI*2);
+            ctx.fill();
+            ctx.beginPath();
+            ctx.arc(cx+24, cy-16, 4, 0, Math.PI*2);
+            ctx.fill();
+            ctx.fillStyle = '#8a3a2a';
+            const mh = 6 + 12 * mouthOpen;
+            ctx.beginPath();
+            ctx.ellipse(cx, cy+20, 14, mh, 0, 0, Math.PI*2);
+            ctx.fill();
         }
 
-        // Draw selected avatar
-        const cx = 320, cy = 180;
-        switch (avatarType) {
-          case 'professional': drawProfessional(ctx, cx, cy, elapsed, mouthOpen); break;
-          case 'friendly': drawFriendly(ctx, cx, cy, elapsed, mouthOpen); break;
-          case 'tech': drawTech(ctx, cx, cy, elapsed, mouthOpen); break;
-          case 'creative': drawCreative(ctx, cx, cy, elapsed, mouthOpen); break;
-          default: drawFriendly(ctx, cx, cy, elapsed, mouthOpen);
+        function drawFriendly(ctx, cx, cy, time, mouthOpen) {
+            ctx.fillStyle = '#4a6a8a';
+            ctx.fillRect(cx-40, cy+50, 80, 60);
+            ctx.fillStyle = '#3a5a7a';
+            ctx.fillRect(cx-35, cy+45, 70, 15);
+            ctx.fillStyle = '#f5d0b8';
+            ctx.beginPath();
+            ctx.ellipse(cx, cy, 50, 60, 0, 0, Math.PI*2);
+            ctx.fill();
+            ctx.fillStyle = '#2a1f1a';
+            ctx.beginPath();
+            ctx.arc(cx-20, cy-10, 5, 0, Math.PI*2);
+            ctx.fill();
+            ctx.beginPath();
+            ctx.arc(cx+20, cy-10, 5, 0, Math.PI*2);
+            ctx.fill();
+            ctx.strokeStyle = '#8a3a2a';
+            ctx.lineWidth = 2;
+            ctx.beginPath();
+            ctx.arc(cx, cy+10, 15, 0.1, Math.PI-0.1);
+            ctx.stroke();
+            if (mouthOpen > 0.3) {
+                ctx.fillStyle = '#8a3a2a';
+                const mh = 6 + 10 * mouthOpen;
+                ctx.beginPath();
+                ctx.ellipse(cx, cy+15, 10, mh, 0, 0, Math.PI*2);
+                ctx.fill();
+            }
         }
 
-        // ------ Highlight text as it's spoken (teleprompter effect) ------
-        const wordsSpoken = Math.floor(speechProgress * words.length);
-        const displayWords = words.slice(0, Math.min(wordsSpoken + 1, words.length));
-        const remainingWords = words.slice(Math.min(wordsSpoken + 1, words.length));
-        const displayedText = displayWords.join(' ');
-        const remainingText = remainingWords.join(' ');
+        function drawTech(ctx, cx, cy, time, mouthOpen) {
+            ctx.fillStyle = '#1a2a3a';
+            ctx.fillRect(cx-40, cy+50, 80, 60);
+            ctx.fillStyle = '#0a1a2a';
+            ctx.fillRect(cx-35, cy+45, 70, 15);
+            ctx.fillStyle = '#d4c4b0';
+            ctx.beginPath();
+            ctx.ellipse(cx, cy, 50, 60, 0, 0, Math.PI*2);
+            ctx.fill();
+            ctx.fillStyle = '#4a8aff';
+            ctx.globalAlpha = 0.3;
+            ctx.fillRect(cx-30, cy-25, 60, 20);
+            ctx.globalAlpha = 1.0;
+            ctx.strokeStyle = '#4a8aff';
+            ctx.lineWidth = 2;
+            ctx.strokeRect(cx-30, cy-25, 60, 20);
+            ctx.fillStyle = '#00ffcc';
+            ctx.beginPath();
+            ctx.arc(cx-18, cy-15, 4, 0, Math.PI*2);
+            ctx.fill();
+            ctx.beginPath();
+            ctx.arc(cx+18, cy-15, 4, 0, Math.PI*2);
+            ctx.fill();
+            ctx.fillStyle = '#8a3a2a';
+            const mh = 5 + 12 * mouthOpen;
+            ctx.beginPath();
+            ctx.ellipse(cx, cy+20, 12, mh, 0, 0, Math.PI*2);
+            ctx.fill();
+        }
 
-        ctx.textAlign = 'center';
-        ctx.textBaseline = 'bottom';
-        ctx.shadowColor = 'rgba(0,0,0,0.9)';
-        ctx.shadowBlur = 15;
+        function drawCreative(ctx, cx, cy, time, mouthOpen) {
+            const hue = (time * 20) % 360;
+            ctx.fillStyle = `hsl(${hue}, 60%, 30%)`;
+            ctx.fillRect(cx-40, cy+50, 80, 60);
+            ctx.fillStyle = `hsl(${hue+30}, 60%, 20%)`;
+            ctx.fillRect(cx-35, cy+45, 70, 15);
+            ctx.fillStyle = '#f5d0b8';
+            ctx.beginPath();
+            ctx.ellipse(cx, cy, 50, 60, 0, 0, Math.PI*2);
+            ctx.fill();
+            ctx.fillStyle = `hsl(${hue+60}, 70%, 60%)`;
+            ctx.globalAlpha = 0.3;
+            ctx.beginPath();
+            ctx.ellipse(cx-25, cy-20, 12, 8, -0.3, 0, Math.PI*2);
+            ctx.fill();
+            ctx.beginPath();
+            ctx.ellipse(cx+25, cy-20, 12, 8, 0.3, 0, Math.PI*2);
+            ctx.fill();
+            ctx.globalAlpha = 1.0;
+            ctx.fillStyle = '#2a1f1a';
+            ctx.beginPath();
+            ctx.arc(cx-20, cy-10, 5, 0, Math.PI*2);
+            ctx.fill();
+            ctx.beginPath();
+            ctx.arc(cx+20, cy-10, 5, 0, Math.PI*2);
+            ctx.fill();
+            ctx.fillStyle = '#c04060';
+            const mh = 6 + 12 * mouthOpen;
+            ctx.beginPath();
+            ctx.ellipse(cx, cy+18, 14, mh, 0, 0, Math.PI*2);
+            ctx.fill();
+        }
 
-        // Highlighted (spoken) text - white with glow
-        ctx.font = 'bold 20px "Segoe UI", system-ui, sans-serif';
-        ctx.fillStyle = '#ffffff';
-        ctx.shadowColor = 'rgba(123, 140, 255, 0.5)';
-        ctx.shadowBlur = 20;
-        const line1 = displayedText.length > 60 ? displayedText.slice(0, 60) + '…' : displayedText;
-        ctx.fillText(line1, canvas.width/2, canvas.height - 40);
+        // ---------- Main generation function ----------
+        async function generateAvatarVideo() {
+            const text = textInput.value.trim();
+            const avatarType = avatarSelect.value;
+            let duration = parseInt(durationInput.value) || 30;
+            if (duration < 5) duration = 5;
+            if (duration > 600) duration = 600;
+            durationInput.value = duration;
 
-        // Remaining text - dimmed
-        ctx.font = '18px "Segoe UI", system-ui, sans-serif';
-        ctx.fillStyle = '#6a7a9a';
-        ctx.shadowBlur = 8;
-        ctx.shadowColor = 'rgba(0,0,0,0.5)';
-        const line2 = remainingText.length > 60 ? remainingText.slice(0, 60) + '…' : remainingText;
-        ctx.fillText(line2, canvas.width/2, canvas.height - 12);
+            if (!text) {
+                setStatus('Please enter a script.', false, true);
+                return;
+            }
 
-        ctx.shadowBlur = 0;
-        requestAnimationFrame(renderFrame);
-      }
+            // Reset video and blob
+            video.src = '';
+            video.dataset.blobUrl = '';
+            video.dataset.blob = null;
+            currentBlob = null;
+            downloadMobile.disabled = true;
+            downloadComputer.disabled = true;
 
-      // Start speech and rendering
-      speechUtterance.onend = () => {
-        // Speech ended, but we'll keep rendering until duration
-      };
-      speechSynthesis.speak(speechUtterance);
-      renderFrame();
+            setStatus(`🎬 Generating with ${avatarType} avatar...`, true);
+            generateBtn.disabled = true;
+            generateBtn.innerHTML = '<i class="fas fa-spinner fa-pulse"></i> Rendering...';
 
-      // Stop after duration
-      setTimeout(() => {
-        if (recorder.state === 'recording') recorder.stop();
-        setTimeout(() => {
-          speechSynthesis.cancel();
-          audioCtx.close().catch(() => {});
-        }, 300);
-      }, finalDuration * 1000 + 200);
-    }
+            try {
+                // --- Setup Canvas ---
+                const canvas = document.createElement('canvas');
+                canvas.width = 640;
+                canvas.height = 360;
+                const ctx = canvas.getContext('2d');
 
-    // --- Event listeners ---
-    generateBtn.addEventListener('click', generateAvatarVideo);
+                // --- Audio Context (needs user gesture) ---
+                const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+                if (audioCtx.state === 'suspended') {
+                    await audioCtx.resume();
+                }
+                const masterGain = audioCtx.createGain();
+                masterGain.gain.value = 1.0;
+                masterGain.connect(audioCtx.destination);
 
-    randomBtn.addEventListener('click', () => {
-      const randomIndex = Math.floor(Math.random() * sampleScripts.length);
-      textInput.value = sampleScripts[randomIndex];
-      setStatus('Random script loaded. Generate!', false);
-    });
+                // --- Text-to-Speech ---
+                const speechUtterance = new SpeechSynthesisUtterance(text);
+                speechUtterance.rate = 0.85;
+                speechUtterance.pitch = 1.0;
+                speechUtterance.volume = 1.0;
 
-    function downloadVideo(device) {
-      const blob = video.dataset.blob;
-      if (!blob) { setStatus('Generate a video first!', false); return; }
-      const link = document.createElement('a');
-      link.href = URL.createObjectURL(blob);
-      link.download = `avatar-${device}-${Date.now()}.webm`;
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-      setTimeout(() => URL.revokeObjectURL(link.href), 5000);
-      setStatus(`Downloading for ${device} ...`, false);
-    }
+                // Get voices
+                let voices = speechSynthesis.getVoices();
+                if (voices.length === 0) {
+                    // Wait for voices to load
+                    await new Promise(resolve => {
+                        speechSynthesis.onvoiceschanged = () => {
+                            voices = speechSynthesis.getVoices();
+                            resolve();
+                        };
+                    });
+                }
+                const preferredVoice = voices.find(v => v.lang.startsWith('en') && v.name.includes('Google')) ||
+                                      voices.find(v => v.lang.startsWith('en')) ||
+                                      voices[0];
+                if (preferredVoice) speechUtterance.voice = preferredVoice;
 
-    downloadMobile.addEventListener('click', () => downloadVideo('mobile'));
-    downloadComputer.addEventListener('click', () => downloadVideo('computer'));
+                // Estimate speech duration
+                const wordCount = text.split(' ').length;
+                const estimatedSpeechDuration = Math.min(Math.max(wordCount * 0.4, 3), 60);
+                const finalDuration = Math.max(duration, estimatedSpeechDuration + 2);
+                durationInput.value = Math.ceil(finalDuration);
 
-    setStatus('Ready. Choose avatar & generate.', false);
+                // --- Set up recording ---
+                const stream = canvas.captureStream(30);
+                const audioStreamDestination = audioCtx.createMediaStreamDestination();
+                masterGain.connect(audioStreamDestination);
+                const audioTrack = audioStreamDestination.stream.getAudioTracks()[0];
+                const videoTrack = stream.getVideoTracks()[0];
+                const combinedStream = new MediaStream([videoTrack, audioTrack]);
 
-    // Pre-load voices
-    speechSynthesis.getVoices();
-    speechSynthesis.onvoiceschanged = () => { speechSynthesis.getVoices(); };
-  })();
+                // Check if MediaRecorder supports the format
+                let mimeType = 'video/webm;codecs=vp8,opus';
+                if (!MediaRecorder.isTypeSupported(mimeType)) {
+                    mimeType = 'video/webm;codecs=vp9,opus';
+                    if (!MediaRecorder.isTypeSupported(mimeType)) {
+                        mimeType = 'video/webm;codecs=h264,opus';
+                        if (!MediaRecorder.isTypeSupported(mimeType)) {
+                            mimeType = 'video/webm';
+                        }
+                    }
+                }
+
+                const recorder = new MediaRecorder(combinedStream, {
+                    mimeType: mimeType,
+                    videoBitsPerSecond: 2500000,
+                });
+
+                const chunks = [];
+                recorder.ondataavailable = (e) => {
+                    if (e.data && e.data.size > 0) chunks.push(e.data);
+                };
+
+                // --- Animation loop ---
+                const startTime = performance.now();
+                const words = text.split(' ');
+                let animationId = null;
+
+                function renderFrame() {
+                    const elapsed = (performance.now() - startTime) / 1000;
+                    if (elapsed >= finalDuration || recorder.state === 'inactive' || recorder.state === 'stopped') {
+                        if (recorder.state === 'recording') {
+                            try { recorder.stop(); } catch(e) {}
+                        }
+                        return;
+                    }
+
+                    // Clear and draw background
+                    ctx.clearRect(0, 0, canvas.width, canvas.height);
+                    const grad = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
+                    grad.addColorStop(0, '#0f1a2a');
+                    grad.addColorStop(0.5, '#1a2a3a');
+                    grad.addColorStop(1, '#0f1a2a');
+                    ctx.fillStyle = grad;
+                    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+                    // Mouth movement
+                    const speechProgress = Math.min(elapsed / estimatedSpeechDuration, 1);
+                    let mouthOpen = 0;
+                    if (speechProgress < 0.9) {
+                        const syllablePhase = Math.sin(elapsed * 16) * 0.5 + 0.5;
+                        mouthOpen = 0.2 + syllablePhase * 0.8;
+                    }
+
+                    // Draw avatar
+                    const cx = 320, cy = 180;
+                    switch (avatarType) {
+                        case 'professional': drawProfessional(ctx, cx, cy, elapsed, mouthOpen); break;
+                        case 'friendly': drawFriendly(ctx, cx, cy, elapsed, mouthOpen); break;
+                        case 'tech': drawTech(ctx, cx, cy, elapsed, mouthOpen); break;
+                        case 'creative': drawCreative(ctx, cx, cy, elapsed, mouthOpen); break;
+                        default: drawFriendly(ctx, cx, cy, elapsed, mouthOpen);
+                    }
+
+                    // Text overlay - teleprompter
+                    const wordsSpoken = Math.floor(speechProgress * words.length);
+                    const displayWords = words.slice(0, Math.min(wordsSpoken + 1, words.length));
+                    const remainingWords = words.slice(Math.min(wordsSpoken + 1, words.length));
+                    const displayedText = displayWords.join(' ');
+                    const remainingText = remainingWords.join(' ');
+
+                    ctx.textAlign = 'center';
+                    ctx.textBaseline = 'bottom';
+                    ctx.shadowColor = 'rgba(0,0,0,0.9)';
+                    ctx.shadowBlur = 15;
+
+                    ctx.font = 'bold 20px "Segoe UI", system-ui, sans-serif';
+                    ctx.fillStyle = '#ffffff';
+                    ctx.shadowColor = 'rgba(123, 140, 255, 0.5)';
+                    ctx.shadowBlur = 20;
+                    const line1 = displayedText.length > 60 ? displayedText.slice(0, 60) + '…' : displayedText;
+                    ctx.fillText(line1, canvas.width/2, canvas.height - 40);
+
+                    ctx.font = '18px "Segoe UI", system-ui, sans-serif';
+                    ctx.fillStyle = '#6a7a9a';
+                    ctx.shadowBlur = 8;
+                    ctx.shadowColor = 'rgba(0,0,0,0.5)';
+                    const line2 = remainingText.length > 60 ? remainingText.slice(0, 60) + '…' : remainingText;
+                    ctx.fillText(line2, canvas.width/2, canvas.height - 12);
+
+                    ctx.shadowBlur = 0;
+                    animationId = requestAnimationFrame(renderFrame);
+                }
+
+                // --- Start everything ---
+                // Start recording
+                recorder.start(1000); // Capture in 1-second chunks
+
+                // Start speech
+                speechSynthesis.speak(speechUtterance);
+
+                // Start animation
+                renderFrame();
+
+                // --- Handle recorder stop ---
+                const recorderStopPromise = new Promise((resolve) => {
+                    recorder.onstop = () => {
+                        try {
+                            const blob = new Blob(chunks, { type: 'video/webm' });
+                            const url = URL.createObjectURL(blob);
+                            video.src = url;
+                            video.muted = false;
+                            video.controls = true;
+                            video.dataset.blobUrl = url;
+                            video.dataset.blob = blob;
+                            currentBlob = blob;
+                            downloadMobile.disabled = false;
+                            downloadComputer.disabled = false;
+                            setStatus(`✅ Video ready · ${Math.ceil(finalDuration)}s · ${avatarType}`, false);
+                        } catch (e) {
+                            setStatus('Error processing video. Please try again.', false, true);
+                        }
+                        generateBtn.disabled = false;
+                        generateBtn.innerHTML = '<i class="fas fa-wand-magic-sparkles"></i> Generate Video';
+                        resolve();
+                    };
+                });
+
+                // --- Stop after duration ---
+                setTimeout(() => {
+                    if (recorder.state === 'recording') {
+                        try { recorder.stop(); } catch(e) {}
+                    }
+                    // Cancel speech if still speaking
+                    setTimeout(() => {
+                        speechSynthesis.cancel();
+                        audioCtx.close().catch(() => {});
+                    }, 500);
+                }, finalDuration * 1000 + 300);
+
+                // Wait for recorder to finish
+                await recorderStopPromise;
+
+            } catch (error) {
+                console.error('Generation error:', error);
+                setStatus(`Error: ${error.message || 'Unknown error'}`, false, true);
+                generateBtn.disabled = false;
+                generateBtn.innerHTML = '<i class="fas fa-wand-magic-sparkles"></i> Generate Video';
+            }
+        }
+
+        // --- Event listeners ---
+        generateBtn.addEventListener('click', generateAvatarVideo);
+
+        randomBtn.addEventListener('click', () => {
+            const randomIndex = Math.floor(Math.random() * sampleScripts.length);
+            textInput.value = sampleScripts[randomIndex];
+            setStatus('Random script loaded. Generate!', false);
+        });
+
+        function downloadVideo(device) {
+            if (!currentBlob) {
+                setStatus('Generate a video first!', false, true);
+                return;
+            }
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(currentBlob);
+            link.download = `avatar-${device}-${Date.now()}.webm`;
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            setTimeout(() => URL.revokeObjectURL(link.href), 5000);
+            setStatus(`Downloading for ${device} ...`, false);
+        }
+
+        downloadMobile.addEventListener('click', () => downloadVideo('mobile'));
+        downloadComputer.addEventListener('click', () => downloadVideo('computer'));
+
+        setStatus('Ready. Choose avatar & generate.', false);
+
+        // Pre-load voices
+        if (speechSynthesis.getVoices().length === 0) {
+            speechSynthesis.onvoiceschanged = () => { speechSynthesis.getVoices(); };
+        }
+    })();
 </script>
 </body>
 </html>
